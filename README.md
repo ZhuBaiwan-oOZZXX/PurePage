@@ -69,7 +69,7 @@ scan_dirs = ['note', 'novel']  # 添加或删除目录名
 
 1. Fork 本仓库
 2. 在 Settings → Pages 中启用 GitHub Pages
-3. Branch 选择 main 分支和根目录
+3. Branch 选择 main 分支和根目录，点击 Save
 4. 访问：`https://你的用户名.github.io/PurePage/`
 
 > 你也可以部署在 Vercel 或者 Cloudflare Pages 等站点托管服务上
