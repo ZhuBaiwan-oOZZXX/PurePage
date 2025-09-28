@@ -1,0 +1,108 @@
+{
+  "name": "root",
+  "type": "folder",
+  "path": "",
+  "children": [
+    {
+      "name": "note",
+      "type": "folder",
+      "path": "note",
+      "children": [
+        {
+          "name": "我的第一篇笔记.md",
+          "type": "file",
+          "path": "note/我的第一篇笔记.md"
+        }
+      ]
+    },
+    {
+      "name": "novel",
+      "type": "folder",
+      "path": "novel",
+      "children": [
+        {
+          "name": "性奴礼赞：沉沦烙痕",
+          "type": "folder",
+          "path": "novel/性奴礼赞：沉沦烙痕",
+          "children": [
+            {
+              "name": "1-1-秘密花园.md",
+              "type": "file",
+              "path": "novel/性奴礼赞：沉沦烙痕/1-1-秘密花园.md"
+            },
+            {
+              "name": "1-2-秘密花园.md",
+              "type": "file",
+              "path": "novel/性奴礼赞：沉沦烙痕/1-2-秘密花园.md"
+            },
+            {
+              "name": "1-3-秘密花园.md",
+              "type": "file",
+              "path": "novel/性奴礼赞：沉沦烙痕/1-3-秘密花园.md"
+            },
+            {
+              "name": "2-1-契约与圣水.md",
+              "type": "file",
+              "path": "novel/性奴礼赞：沉沦烙痕/2-1-契约与圣水.md"
+            },
+            {
+              "name": "2-2-契约与圣水.md",
+              "type": "file",
+              "path": "novel/性奴礼赞：沉沦烙痕/2-2-契约与圣水.md"
+            },
+            {
+              "name": "2-3-契约与圣水.md",
+              "type": "file",
+              "path": "novel/性奴礼赞：沉沦烙痕/2-3-契约与圣水.md"
+            },
+            {
+              "name": "3-1-共享晚宴.md",
+              "type": "file",
+              "path": "novel/性奴礼赞：沉沦烙痕/3-1-共享晚宴.md"
+            },
+            {
+              "name": "3-2-共享晚宴.md",
+              "type": "file",
+              "path": "novel/性奴礼赞：沉沦烙痕/3-2-共享晚宴.md"
+            },
+            {
+              "name": "3-3-共享晚宴.md",
+              "type": "file",
+              "path": "novel/性奴礼赞：沉沦烙痕/3-3-共享晚宴.md"
+            },
+            {
+              "name": "4-1-爱的填充·沙布袋.md",
+              "type": "file",
+              "path": "novel/性奴礼赞：沉沦烙痕/4-1-爱的填充·沙布袋.md"
+            },
+            {
+              "name": "4-2-爱的填充·沙布袋.md",
+              "type": "file",
+              "path": "novel/性奴礼赞：沉沦烙痕/4-2-爱的填充·沙布袋.md"
+            },
+            {
+              "name": "4-3-爱的填充·沙布袋.md",
+              "type": "file",
+              "path": "novel/性奴礼赞：沉沦烙痕/4-3-爱的填充·沙布袋.md"
+            },
+            {
+              "name": "5-1-烙印·吸精兽.md",
+              "type": "file",
+              "path": "novel/性奴礼赞：沉沦烙痕/5-1-烙印·吸精兽.md"
+            },
+            {
+              "name": "5-2-烙印·吸精兽.md",
+              "type": "file",
+              "path": "novel/性奴礼赞：沉沦烙痕/5-2-烙印·吸精兽.md"
+            },
+            {
+              "name": "5-3-烙印·吸精兽.md",
+              "type": "file",
+              "path": "novel/性奴礼赞：沉沦烙痕/5-3-烙印·吸精兽.md"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
