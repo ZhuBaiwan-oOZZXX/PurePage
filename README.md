@@ -26,10 +26,14 @@ cd PurePage
 ## ⚙️ 配置说明
 
 ### 配置博客标题
-修改 `index.html` 第 21 行的博客标题：
+修改 `index.html` 中 `<title>` 标签的博客标题，以及第 21 行的侧边栏标题：
+
 ```html
+<title>朱百万oOZZXX</title>
+...
 <h3>你的博客名称</h3>
 ```
+
 
 ### 配置文章目录
 如需添加自己的文章目录，需要同时修改两个配置文件：
@@ -39,7 +43,7 @@ cd PurePage
 const scanDirs = ['note', 'novel'];  // 添加或删除目录名
 ```
 
-2. 修改 `init.py` 第 46 行的目录列表：
+2. 修改 `init.py` 第 48 行的目录列表：
 ```python
 scan_dirs = ['note', 'novel']  # 添加或删除目录名
 ```
