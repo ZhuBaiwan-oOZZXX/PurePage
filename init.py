@@ -121,7 +121,7 @@ if post_sorted_list:
     new_content = ""
     for mdpath, create_time in post_sorted_list:
         # 确保路径使用正斜杠（跨平台兼容）
-        mdpath = mdpath.replace('\\', '/')
+        mdpath = mdpath.replace('\\', '/').lstrip('./')
         # 使用os.path.normpath确保文件路径兼容性
         file_path = os.path.normpath(mdpath)
         try:
