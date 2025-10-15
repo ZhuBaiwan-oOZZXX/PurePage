@@ -128,8 +128,10 @@ if post_sorted_list:
             with open(file_path, "r", encoding="utf-8") as f:
                 post_content = f.read()
             title = gettitle(post_content)
+            # 对路径进行URL编码，处理空格和特殊字符
+            encoded_path = mdpath.replace(' ', '%20')
             # 修改为hash模式：使用#前缀
-            new_content += f"- [{title}](#{mdpath}) {create_time}\n"
+            new_content += f"- [{title}](#{encoded_path}) {create_time}\n"
         except FileNotFoundError:
             print(f"警告：文件 {file_path} 不存在，跳过")
         except Exception as e:

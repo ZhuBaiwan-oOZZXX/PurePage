@@ -179,8 +179,15 @@ document.addEventListener('DOMContentLoaded', function() {
             path = './' + path;
         }
 
-        // 查找对应的文件元素并激活
-        const fileElement = document.querySelector(`.file-tree-item.file[data-path="${path}"]`);
+        // 尝试查找对应的文件元素
+        let fileElement = document.querySelector(`.file-tree-item.file[data-path="${path}"]`);
+        
+        // 如果没找到，尝试解码路径（处理编码的空格）
+        if (!fileElement) {
+            const decodedPath = decodeURIComponent(path);
+            fileElement = document.querySelector(`.file-tree-item.file[data-path="${decodedPath}"]`);
+        }
+
         if (fileElement) {
             // 清除其他活动状态
             document.querySelectorAll('.file-tree-item').forEach(item => {
