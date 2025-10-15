@@ -155,8 +155,10 @@ function generateIndexAndSitemap() {
             const filePath = path.join(rootDir, cleanPath);
             try {
                 const title = getTitle(filePath);
-                articleListContent += `- [${title}](#${cleanPath}) ${createTime}\n`;
-                console.log(`=> ${createTime} #${cleanPath}`);
+                // 对路径进行 URL 编码，处理空格等特殊字符
+                const encodedPath = encodeURI(cleanPath);
+                articleListContent += `- [${title}](#${encodedPath}) ${createTime}\n`;
+                console.log(`=> ${createTime} #${encodedPath}`);
             } catch (error) {
                 console.error(`警告：读取文件 ${filePath} 时出错：${error}`);
             }
