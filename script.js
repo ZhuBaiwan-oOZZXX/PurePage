@@ -104,9 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // 解码URL路径
         path = decodeURIComponent(path);
         
-        // 确保路径格式正确
-        if (!path.startsWith('./') && !path.startsWith('http')) {
-            path = './' + path;
+        // 确保路径格式正确（移除不必要的./前缀）
+        if (path.startsWith('./')) {
+            path = path.substring(2);
         }
 
         loadFileContent(path);
@@ -209,9 +209,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // 解码URL路径
         path = decodeURIComponent(path);
         
-        // 确保路径格式一致
-        if (!path.startsWith('./') && !path.startsWith('http')) {
-            path = './' + path;
+        // 确保路径格式一致（移除不必要的./前缀）
+        if (path.startsWith('./')) {
+            path = path.substring(2);
         }
 
         const fileElement = document.querySelector(`.file-tree-item.file[data-path="${path}"]`);
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const hashPath = href.substring(1);
             const decodedPath = decodeURIComponent(hashPath);
-            const path = `./${decodedPath}`;
+            const path = decodedPath;
             
             loadFileContent(path);
             updateUrl(path);
