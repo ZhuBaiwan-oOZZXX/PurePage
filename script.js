@@ -86,6 +86,11 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // 确保路径格式正确，如果路径没有 ./ 前缀，添加它以确保文件加载正确
+        if (!path.startsWith('./') && !path.startsWith('http')) {
+            path = './' + path;
+        }
+
         // 使用URL中的路径加载内容
         loadFileContent(path);
     }
@@ -93,7 +98,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // 更新URL而不刷新页面
     function updateUrl(filePath) {
         // 使用hash方式更新URL
-        window.location.hash = filePath;
+        // 去除路径开头的 ./ 以确保URL格式正确
+        const cleanPath = filePath.replace(/^\.\//, '');
+        window.location.hash = cleanPath;
     }
 
     // 修改加载文件树的函数，使用预生成的JSON文件
