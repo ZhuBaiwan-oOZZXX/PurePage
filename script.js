@@ -86,6 +86,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // 对URL中的路径进行解码（处理浏览器自动编码）
+        path = decodeURIComponent(path);
+
         // 确保路径格式正确，如果路径没有 ./ 前缀，添加它以确保文件加载正确
         if (!path.startsWith('./') && !path.startsWith('http')) {
             path = './' + path;
@@ -264,10 +267,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // 修改fetchFileContent函数来加载实际的Markdown文件
     async function fetchFileContent(filePath) {
         try {
-            // 对文件路径进行URL编码，以正确处理包含空格和特殊字符的文件名
-            const encodedPath = filePath.split('/').map(part => encodeURIComponent(part)).join('/');
-            // 直接从相对路径加载markdown文件
-            const response = await fetch(encodedPath);
+            // 直接从相对路径加载markdown文件（路径已经过解码处理）
+            const response = await fetch(filePath);
             if (!response.ok) {
                 throw new Error(`加载文件失败: HTTP ${response.status}`);
             }
@@ -299,8 +300,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // 如果路径以note/开头，说明是我们的文件链接
                 if (hashPath.startsWith('note/')) {
+                    // 对路径进行解码（处理编码的空格）
+                    const decodedPath = decodeURIComponent(hashPath);
+                    
                     // 确保路径格式正确
-                    let path = hashPath;
+                    let path = decodedPath;
                     if (!path.startsWith('./') && !path.startsWith('http')) {
                         path = './' + path;
                     }
