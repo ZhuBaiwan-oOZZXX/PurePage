@@ -2,15 +2,10 @@
 
 > 一个基于 [PurePage](https://github.com/ZhuBaiwan-oOZZXX/PurePage) 的极简静态博客
 
-## 关于我
-
-这里是我的个人博客，分享技术文章、学习笔记和生活感悟。
-
 ## 文章列表
 
-
-- [uv 安装](#note/国内环境安装%20uv.md) 2025-10-15
-- [我的第一篇笔记](#note/我的第一篇笔记.md) 2025-09-28
+- [uv 安装](#note/dev/国内环境安装 uv.md) 2025-10-15
+- [我的第一篇笔记](#note/dev/我的第一篇笔记.md) 2025-09-28
 - [第一章：秘密花园（上）](#note/novel/性奴礼赞：沉沦烙痕/1-1-秘密花园.md) 2025-09-28
 - [第一章：秘密花园（中）](#note/novel/性奴礼赞：沉沦烙痕/1-2-秘密花园.md) 2025-09-28
 - [第一章：秘密花园（下）](#note/novel/性奴礼赞：沉沦烙痕/1-3-秘密花园.md) 2025-09-28
@@ -33,11 +28,8 @@
 要添加新文章，只需在 note 目录下创建 `.md` 文件，然后运行：
 
 ```bash
-# 更新侧边栏
-node generate-sidebar-structure.js
-
-# 更新首页
-python init.py
+# 更新侧边栏和首页
+node generate-content.js
 ```
 
 创建其他目录请参考项目 [README.md](https://github.com/ZhuBaiwan-oOZZXX/PurePage) 文件。
