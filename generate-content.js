@@ -128,7 +128,7 @@ function generateIndexAndSitemap() {
                 scanMdFiles(filePath);
             } else if (file.name.toLowerCase().endsWith('.md')) {
                 const relativePath = path.relative(rootDir, filePath).replace(/\\/g, '/');
-                mdFilesPath.push(`./${relativePath}`);
+                mdFilesPath.push(relativePath);
                 
                 const stats = fs.statSync(filePath);
                 mdCreateTime.push(new Date(stats.mtime).toISOString().split('T')[0]);
@@ -151,7 +151,7 @@ function generateIndexAndSitemap() {
         const postSortedList = postList.sort((a, b) => new Date(b[1]) - new Date(a[1]));
 
         for (const [mdPath, createTime] of postSortedList) {
-            const cleanPath = mdPath.replace('\\', '/').replace(/^\.\//, '');
+            const cleanPath = mdPath.replace('\\', '/');
             const filePath = path.join(rootDir, cleanPath);
             try {
                 const title = getTitle(filePath);
