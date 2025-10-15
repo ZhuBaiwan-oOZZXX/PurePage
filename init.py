@@ -128,7 +128,8 @@ if post_sorted_list:
             with open(file_path, "r", encoding="utf-8") as f:
                 post_content = f.read()
             title = gettitle(post_content)
-            new_content += f"- [{title}]({mdpath}) {create_time}\n"
+            # 修改为hash模式：使用#前缀
+            new_content += f"- [{title}](#{mdpath}) {create_time}\n"
         except FileNotFoundError:
             print(f"警告：文件 {file_path} 不存在，跳过")
         except Exception as e:
