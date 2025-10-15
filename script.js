@@ -257,10 +257,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // 修改fetchFileContent函数来加载实际的Markdown文件
     async function fetchFileContent(filePath) {
         try {
-            // 对文件路径进行解码，以正确处理包含编码字符的路径
-            const decodedPath = decodeURIComponent(filePath);
+            // 对文件路径进行URL编码，以正确处理包含空格和特殊字符的文件名
+            const encodedPath = filePath.split('/').map(part => encodeURIComponent(part)).join('/');
             // 直接从相对路径加载markdown文件
-            const response = await fetch(decodedPath);
+            const response = await fetch(encodedPath);
             if (!response.ok) {
                 throw new Error(`加载文件失败: HTTP ${response.status}`);
             }
