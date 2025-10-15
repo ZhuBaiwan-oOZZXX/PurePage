@@ -155,8 +155,8 @@ function generateIndexAndSitemap() {
             const filePath = path.join(rootDir, cleanPath);
             try {
                 const title = getTitle(filePath);
-                // 对路径进行 URL 编码，处理空格等特殊字符
-                const encodedPath = encodeURI(cleanPath);
+                // 只对空格进行编码，其他字符保持原样
+                const encodedPath = cleanPath.replace(/ /g, '%20');
                 articleListContent += `- [${title}](#${encodedPath}) ${createTime}\n`;
                 console.log(`=> ${createTime} #${encodedPath}`);
             } catch (error) {
