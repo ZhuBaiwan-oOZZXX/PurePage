@@ -277,6 +277,45 @@ document.addEventListener('DOMContentLoaded', function() {
     // 页面加载时初始化文件树
     loadFileTree();
 
+    // 添加：处理首页中的链接点击事件
+    document.addEventListener('click', function(e) {
+        // 检查点击的是否是链接元素
+        const link = e.target.closest('a');
+        if (link && link.href) {
+            // 检查是否是哈希链接（以#开头）
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                
+                // 获取哈希部分（去掉#）
+                const hashPath = href.substring(1);
+                
+                // 如果路径以note/开头，说明是我们的文件链接
+                if (hashPath.startsWith('note/')) {
+                    // 确保路径格式正确
+                    let path = hashPath;
+                    if (!path.startsWith('./') && !path.startsWith('http')) {
+                        path = './' + path;
+                    }
+                    
+                    // 加载文件内容
+                    loadFileContent(path);
+                    
+                    // 更新URL
+                    updateUrl(path);
+                    
+                    // 更新侧边栏高亮
+                    highlightActiveFile();
+                    
+                    // 在移动端自动隐藏侧边栏
+                    if (isMobile()) {
+                        sidebar.classList.remove('expanded');
+                    }
+                }
+            }
+        }
+    });
+
     // 添加：监听窗口大小变化
     window.addEventListener('resize', function() {
         if (!isMobile()) {
