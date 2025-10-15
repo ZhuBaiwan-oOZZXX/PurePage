@@ -177,20 +177,16 @@ document.addEventListener('DOMContentLoaded', function() {
         let path = window.location.hash.substring(1);
         if (!path) return;
 
+        // 对URL中的路径进行解码（处理浏览器自动编码）
+        path = decodeURIComponent(path);
+
         // 确保路径格式一致，如果路径没有 ./ 前缀，添加它以便与data-path匹配
         if (!path.startsWith('./') && !path.startsWith('http')) {
             path = './' + path;
         }
 
-        // 尝试查找对应的文件元素
-        let fileElement = document.querySelector(`.file-tree-item.file[data-path="${path}"]`);
-        
-        // 如果没找到，尝试解码路径（处理编码的空格）
-        if (!fileElement) {
-            const decodedPath = decodeURIComponent(path);
-            fileElement = document.querySelector(`.file-tree-item.file[data-path="${decodedPath}"]`);
-        }
-
+        // 查找对应的文件元素
+        const fileElement = document.querySelector(`.file-tree-item.file[data-path="${path}"]`);
         if (fileElement) {
             // 清除其他活动状态
             document.querySelectorAll('.file-tree-item').forEach(item => {
@@ -267,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 修改fetchFileContent函数来加载实际的Markdown文件
     async function fetchFileContent(filePath) {
         try {
-            // 直接从相对路径加载markdown文件（路径已经过解码处理）
+            // 直接从相对路径加载markdown文件
             const response = await fetch(filePath);
             if (!response.ok) {
                 throw new Error(`加载文件失败: HTTP ${response.status}`);
