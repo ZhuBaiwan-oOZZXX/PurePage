@@ -14,10 +14,12 @@ function getDirectoryStructure(dirPath, rootDir) {
     // 检查是否为目录
     const stats = fs.statSync(dirPath);
     if (!stats.isDirectory()) {
+        // 对文件路径进行URL编码以支持包含空格和特殊字符的文件名
+        const encodedRelativePath = relativePath.split(path.sep).map(part => encodeURIComponent(part)).join('/');
         return {
             name: name,
             type: 'file',
-            path: relativePath.replace(/\\/g, '/')
+            path: encodedRelativePath
         };
     }
 
@@ -37,10 +39,13 @@ function getDirectoryStructure(dirPath, rootDir) {
         } else {
             // 只包含markdown文件
             if (file.toLowerCase().endsWith('.md')) {
+                // 对文件路径进行URL编码以支持包含空格和特殊字符的文件名
+                const relativeFilePath = path.relative(rootDir, filePath);
+                const encodedRelativePath = relativeFilePath.split(path.sep).map(part => encodeURIComponent(part)).join('/');
                 children.push({
                     name: file,
                     type: 'file',
-                    path: path.relative(rootDir, filePath).replace(/\\/g, '/')
+                    path: encodedRelativePath
                 });
             }
         }
