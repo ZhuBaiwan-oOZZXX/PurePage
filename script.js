@@ -174,6 +174,11 @@ document.addEventListener('DOMContentLoaded', function() {
         let path = window.location.hash.substring(1);
         if (!path) return;
 
+        // 确保路径格式一致，如果路径没有 ./ 前缀，添加它以便与data-path匹配
+        if (!path.startsWith('./') && !path.startsWith('http')) {
+            path = './' + path;
+        }
+
         // 查找对应的文件元素并激活
         const fileElement = document.querySelector(`.file-tree-item.file[data-path="${path}"]`);
         if (fileElement) {
