@@ -191,7 +191,7 @@ node generate-content.js
 
 ## 联系我
 
-- 邮箱：2022304402@aust.edu.cn
+- 邮箱：zhubaiwan.oozzxx@gmail.com
 - GitHub：ZhuBaiwan-oOZZXX
 
 ---
