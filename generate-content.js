@@ -110,59 +110,96 @@ function getTitle(filePath) {
 }
 
 /**
+ * 递归获取目录中的所有markdown文件信息
+ */
+function getMdFilesInfo(directory, rootDir) {
+    const result = [];
+    const files = fs.readdirSync(directory, { withFileTypes: true });
+    
+    for (const file of files) {
+        const filePath = path.join(directory, file.name);
+        if (file.isDirectory()) {
+            result.push(...getMdFilesInfo(filePath, rootDir));
+        } else if (file.name.toLowerCase().endsWith('.md')) {
+            const relativePath = path.relative(rootDir, filePath).replace(/\\/g, '/');
+            const stats = fs.statSync(filePath);
+            const createTime = new Date(stats.mtime).toISOString().split('T')[0];
+            const title = getTitle(filePath);
+            
+            result.push({
+                path: relativePath,
+                createTime: createTime,
+                title: title,
+                dir: path.dirname(relativePath)
+            });
+        }
+    }
+    
+    return result;
+}
+
+/**
+ * 按文件夹组织文章列表
+ */
+function organizeArticlesByFolder(mdFilesInfo) {
+    const folderMap = {};
+    
+    // 按文件夹分组
+    mdFilesInfo.forEach(fileInfo => {
+        const dir = fileInfo.dir;
+        if (!folderMap[dir]) {
+            folderMap[dir] = [];
+        }
+        folderMap[dir].push(fileInfo);
+    });
+    
+    // 对每个文件夹内的文章按时间排序
+    for (const dir in folderMap) {
+        folderMap[dir].sort((a, b) => new Date(b.createTime) - new Date(a.createTime));
+    }
+    
+    return folderMap;
+}
+
+/**
  * 生成首页文章列表和站点地图
  */
 function generateIndexAndSitemap() {
     const rootDir = path.resolve(__dirname);
-    const mdFiles = [];
-    const mdFilesPath = [];
-    const mdCreateTime = [];
+    const mdFilesInfo = [];
 
     // 使用全局常量
     const scanDirs = SCAN_DIRS;
-
-    function scanMdFiles(directory) {
-        const files = fs.readdirSync(directory, { withFileTypes: true });
-        for (const file of files) {
-            const filePath = path.join(directory, file.name);
-            if (file.isDirectory()) {
-                scanMdFiles(filePath);
-            } else if (file.name.toLowerCase().endsWith('.md')) {
-                const relativePath = path.relative(rootDir, filePath).replace(/\\/g, '/');
-                mdFilesPath.push(relativePath);
-                
-                const stats = fs.statSync(filePath);
-                mdCreateTime.push(new Date(stats.mtime).toISOString().split('T')[0]);
-            }
-        }
-    }
 
     scanDirs.forEach(dir => {
         const dirPath = path.join(rootDir, dir);
         if (fs.existsSync(dirPath)) {
             console.log(`扫描目录: ${dir}`);
-            scanMdFiles(dirPath);
+            mdFilesInfo.push(...getMdFilesInfo(dirPath, rootDir));
         }
     });
 
-    // 生成文章列表
+    // 生成按文件夹分类的文章列表
     let articleListContent = '';
-    if (mdFilesPath.length > 0) {
-        const postList = mdFilesPath.map((path, index) => [path, mdCreateTime[index]]);
-        const postSortedList = postList.sort((a, b) => new Date(b[1]) - new Date(a[1]));
-
-        for (const [mdPath, createTime] of postSortedList) {
-            const cleanPath = mdPath.replace('\\', '/');
-            const filePath = path.join(rootDir, cleanPath);
-            try {
-                const title = getTitle(filePath);
+    if (mdFilesInfo.length > 0) {
+        const folderMap = organizeArticlesByFolder(mdFilesInfo);
+        
+        // 按文件夹名称排序
+        const sortedFolders = Object.keys(folderMap).sort();
+        
+        for (const folder of sortedFolders) {
+            // 添加文件夹标题
+            const folderDisplayName = folder.startsWith('note/') ? folder.substring(5) : folder;
+            articleListContent += `### ${folderDisplayName || '根目录'}\n\n`;
+            
+            // 添加该文件夹下的文章
+            for (const fileInfo of folderMap[folder]) {
                 // 只对空格进行编码，其他字符保持原样
-                const encodedPath = cleanPath.replace(/ /g, '%20');
-                articleListContent += `- [${title}](#${encodedPath}) ${createTime}\n`;
-                console.log(`=> ${createTime} #${encodedPath}`);
-            } catch (error) {
-                console.error(`警告：读取文件 ${filePath} 时出错：${error}`);
+                const encodedPath = fileInfo.path.replace(/ /g, '%20');
+                articleListContent += `- [${fileInfo.title}](#${encodedPath}) ${fileInfo.createTime}\n`;
+                console.log(`=> ${fileInfo.createTime} #${encodedPath}`);
             }
+            articleListContent += '\n';
         }
     } else {
         articleListContent = "暂无文章，请添加文章到note目录。\n";
@@ -187,7 +224,11 @@ function generateIndexAndSitemap() {
     try {
         const siteUrl = "https://zhubaiwan-oozzxx.github.io/PurePage/";
         const lastmod = new Date().toISOString().split('T')[0];
-        const urls = [""].concat(mdFilesPath.map(p => p.replace(/^\.\//, '')));
+        const urls = [""];
+
+        mdFilesInfo.forEach(fileInfo => {
+            urls.push(fileInfo.path);
+        });
 
         let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';
         sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
