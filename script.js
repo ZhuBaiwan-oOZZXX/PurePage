@@ -1,5 +1,53 @@
 import { processMathAndMarkdown, renderMathInElement } from './htmd/latex.js';
 
+// GitHub Pages图片路径适配函数
+function adaptImagesForGitHubPages(htmlContent, basePath) {
+    // 检查是否在GitHub Pages上运行
+    const isGitHubPages = window.location.hostname.includes('github.io');
+    
+    if (!isGitHubPages) {
+        return htmlContent;
+    }
+    
+    // 获取仓库名作为路径前缀
+    const pathname = window.location.pathname;
+    const repoName = pathname.split('/')[1] || '';
+    
+    if (!repoName) {
+        return htmlContent;
+    }
+    
+    const prefix = `/${repoName}`;
+    
+    // 替换相对路径的图片链接
+    return htmlContent.replace(
+        /(<img[^>]*src=["'])((?!\w+:|\/)[^"']*)/gi,
+        (match, p1, p2) => {
+            // 如果已经是绝对路径或完整URL，则不修改
+            if (p2.startsWith('/') || p2.includes('://')) {
+                return match;
+            }
+            
+            // 处理相对路径
+            let finalPath = p2;
+            if (basePath) {
+                // 构造相对于当前文件的完整路径
+                const basePathDir = basePath.substring(0, basePath.lastIndexOf('/'));
+                if (basePathDir) {
+                    finalPath = `${basePathDir}/${p2}`;
+                }
+            }
+            
+            // 添加仓库名前缀
+            if (!finalPath.startsWith(prefix)) {
+                finalPath = `${prefix}/${finalPath}`;
+            }
+            
+            return `${p1}${finalPath}`;
+        }
+    );
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // 元素获取
     const sidebar = document.getElementById('sidebar');
@@ -235,7 +283,11 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             markdownContent.innerHTML = '<div class="loading">加载内容中...</div>';
             const content = await fetchFileContent(filePath);
-            const renderedContent = processMathAndMarkdown(content);
+            let renderedContent = processMathAndMarkdown(content);
+            
+            // 在GitHub Pages上适配图片路径
+            renderedContent = adaptImagesForGitHubPages(renderedContent, filePath);
+            
             markdownContent.innerHTML = renderedContent;
             await renderMathInElement(markdownContent);
         } catch (error) {
