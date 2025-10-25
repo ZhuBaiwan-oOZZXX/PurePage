@@ -1,0 +1,36 @@
+{
+  "name": "root",
+  "type": "folder",
+  "path": "",
+  "children": [
+    {
+      "name": "note",
+      "type": "folder",
+      "path": "note",
+      "children": [
+        {
+          "name": "dev",
+          "type": "folder",
+          "path": "note/dev",
+          "children": [
+            {
+              "name": "国内环境安装 uv.md",
+              "type": "file",
+              "path": "note/dev/国内环境安装 uv.md"
+            },
+            {
+              "name": "我的第一篇笔记.md",
+              "type": "file",
+              "path": "note/dev/我的第一篇笔记.md"
+            },
+            {
+              "name": "让远程服务器走本地电脑的代理实现科学上网.md",
+              "type": "file",
+              "path": "note/dev/让远程服务器走本地电脑的代理实现科学上网.md"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
