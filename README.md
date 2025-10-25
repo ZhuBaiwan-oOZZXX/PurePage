@@ -2,6 +2,8 @@
 
 一个基于纯前端技术的极简静态博客系统，支持 Markdown 渲染、数学公式、代码高亮等功能。
 
+本项目基于：[yym68686/PurePage](https://github.com/yym68686/PurePage) 修改
+
 ## ✨ 功能特性
 
 - **Markdown 支持** - 完整的 Markdown 语法渲染
@@ -14,7 +16,7 @@
 
 ### 1. Fork 并拉取到本地
 
-首先 Fork 本仓库到你的 GitHub 账户，然后下载项目拉取到本地。
+首先 Fork 本仓库到你的 GitHub 账户，然后下载项目到本地。
 
 ### 2. 修改博客与侧边栏标题
 
