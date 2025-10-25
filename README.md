@@ -37,7 +37,7 @@
 推荐直接在 note 目录创建 `.md` 或者文件夹。如果要将内容放在 note 文件夹之外，需要自行添加到 `generate-content.js` 文件中的 `scanDirs` 数组中。
 
 ```javascript
-const scanDirs = ['note', 'posts', 'docs']; // 添加更多目录
+const SCAN_DIRS = ['note', 'posts', 'docs']; // 添加更多目录
 ```
 
 ### 5. 更新内容
@@ -71,11 +71,21 @@ git push origin main
 
 ### 7. 部署
 
+#### GitHub Pages 部署
 1. 在 Settings → Pages 中启用 GitHub Pages
 2. Branch 选择 main 分支和根目录，点击 Save
-3. 访问：`https://你的用户名.github.io/PurePage/`
+3. 访问：`https://你的用户名.github.io/PurePage`
 
-> 你也可以部署在 Vercel 或者 Cloudflare Pages 等站点托管服务上
+#### Vercel 部署
+1. 登录 [Vercel](https://vercel.com/)
+2. 点击 `Add New...` -> `Project`
+3. 选择本仓库并点击 `Import`，全部保持默认点击 `Deploy`
+
+#### Cloudflare Pages 部署
+1. 登录 [Cloudflare](https://dash.cloudflare.com/)
+2. 在 Workers 和 Pages 中，点击 `创建应用程序` 并选择 `Pages`
+3. 选择 `导入现有 Git 存储库` ，点击 `开始使用`
+4. 选择你的 PurePage 仓库，点击 `开始设置`，全部保持默认，点击 `保存并部署`
 
 ## 🔗 相关链接
 - **原项目**: https://github.com/yym68686/PurePage
