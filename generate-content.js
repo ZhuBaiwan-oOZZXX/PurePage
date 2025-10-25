@@ -1,6 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
+// 定义要扫描的目录（全局常量）
+const SCAN_DIRS = ['note'];
+
 /**
  * 获取指定目录的递归文件结构
  */
@@ -65,10 +68,8 @@ function generateSidebarStructure() {
     };
 
     try {
-        // 定义要扫描的目录
-        const scanDirs = ['note'];
-        
-        scanDirs.forEach(folder => {
+        // 使用全局常量
+        SCAN_DIRS.forEach(folder => {
             const folderPath = path.join(rootDir, folder);
             if (!fs.existsSync(folderPath)) {
                 console.warn(`警告: ${folder} 目录不存在！将被跳过`);
@@ -117,8 +118,8 @@ function generateIndexAndSitemap() {
     const mdFilesPath = [];
     const mdCreateTime = [];
 
-    // 定义要扫描的目录
-    const scanDirs = ['note'];
+    // 使用全局常量
+    const scanDirs = SCAN_DIRS;
 
     function scanMdFiles(directory) {
         const files = fs.readdirSync(directory, { withFileTypes: true });
@@ -170,33 +171,11 @@ function generateIndexAndSitemap() {
     // 完全重写index.md文件
     try {
         const indexPath = path.join(rootDir, 'index.md');
-        const template = `# 欢迎来到我的博客
-
-> 一个基于 [PurePage](https://github.com/ZhuBaiwan-oOZZXX/PurePage) 的极简静态博客
-
-## 文章列表
-
-${articleListContent}
-
-## 开始写作
-
-要添加新文章，只需在 note 目录下创建 \`.md\` 文件，然后运行：
-
-\`\`\`bash
-# 更新侧边栏和首页
-node generate-content.js
-\`\`\`
-
-创建其他目录请参考项目 [README.md](https://github.com/ZhuBaiwan-oOZZXX/PurePage) 文件。
-
-## 联系我
-
-- 邮箱：zhubaiwan.oozzxx@gmail.com
-- GitHub：ZhuBaiwan-oOZZXX
-
----
-
-*感谢访问我的博客！*`;
+        // 从模板文件读取模板内容
+        const templatePath = path.join(rootDir, 'templates', 'index-template.md');
+        let template = fs.readFileSync(templatePath, 'utf8');
+        // 替换文章列表占位符
+        template = template.replace('{{ARTICLE_LIST}}', articleListContent);
 
         fs.writeFileSync(indexPath, template, 'utf8');
         console.log('首页文章列表已更新');
