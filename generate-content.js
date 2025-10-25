@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-// 定义要扫描的目录（全局常量）
+// 定义要扫描的目录
 const SCAN_DIRS = ['note'];
 
 /**
@@ -68,7 +68,6 @@ function generateSidebarStructure() {
     };
 
     try {
-        // 使用全局常量
         SCAN_DIRS.forEach(folder => {
             const folderPath = path.join(rootDir, folder);
             if (!fs.existsSync(folderPath)) {
@@ -88,7 +87,7 @@ function generateSidebarStructure() {
         // 输出JSON文件
         const outputPath = path.join(rootDir, 'content-structure.json');
         fs.writeFileSync(outputPath, JSON.stringify(structure, null, 2));
-        console.log(`文件结构已保存至: ${outputPath}`);
+        console.log(`文件结构已保存至: ${outputPath}\n`);
 
     } catch (error) {
         console.error('生成文件结构时出错:', error);
@@ -162,16 +161,13 @@ function organizeArticlesByFolder(mdFilesInfo) {
 }
 
 /**
- * 生成首页文章列表和站点地图
+ * 生成首页文章列表
  */
-function generateIndexAndSitemap() {
+function generateIndex() {
     const rootDir = path.resolve(__dirname);
     const mdFilesInfo = [];
 
-    // 使用全局常量
-    const scanDirs = SCAN_DIRS;
-
-    scanDirs.forEach(dir => {
+    SCAN_DIRS.forEach(dir => {
         const dirPath = path.join(rootDir, dir);
         if (fs.existsSync(dirPath)) {
             console.log(`扫描目录: ${dir}`);
@@ -215,40 +211,9 @@ function generateIndexAndSitemap() {
         template = template.replace('{{ARTICLE_LIST}}', articleListContent);
 
         fs.writeFileSync(indexPath, template, 'utf8');
-        console.log('首页文章列表已更新');
+        console.log('首页文章列表已更新\n');
     } catch (error) {
-        console.error('更新首页失败:', error);
-    }
-
-    // 生成站点地图
-    try {
-        const siteUrl = "https://zhubaiwan-oozzxx.github.io/PurePage/";
-        const lastmod = new Date().toISOString().split('T')[0];
-        const urls = [""];
-
-        mdFilesInfo.forEach(fileInfo => {
-            urls.push(fileInfo.path);
-        });
-
-        let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';
-        sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
-        
-        for (const url of urls) {
-            const fullUrl = siteUrl + url;
-            console.log("=>", fullUrl);
-            sitemap += '  <url>\n';
-            sitemap += `    <loc>${fullUrl}</loc>\n`;
-            sitemap += `    <lastmod>${lastmod}</lastmod>\n`;
-            sitemap += '    <changefreq>daily</changefreq>\n';
-            sitemap += '  </url>\n';
-        }
-        
-        sitemap += '</urlset>\n';
-        
-        fs.writeFileSync(path.join(rootDir, 'sitemap.xml'), sitemap, 'utf8');
-        console.log('\n站点地图已生成');
-    } catch (error) {
-        console.error('生成站点地图失败:', error);
+        console.error('更新首页失败:\n', error);
     }
 }
 
@@ -260,10 +225,8 @@ function main() {
     console.log('1. 生成侧边栏结构...');
     generateSidebarStructure();
     
-    console.log('\n2. 生成首页文章列表和站点地图...');
-    generateIndexAndSitemap();
-    
-    console.log('\n内容生成完成！');
+    console.log('2. 生成首页文章列表...');
+    generateIndex();
 }
 
 // 执行主函数
