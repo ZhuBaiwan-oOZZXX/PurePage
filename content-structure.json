@@ -29,11 +29,6 @@
               "path": "note/dev/心流 iflow API 代理.md"
             },
             {
-              "name": "我的第一篇笔记.md",
-              "type": "file",
-              "path": "note/dev/我的第一篇笔记.md"
-            },
-            {
               "name": "让远程服务器走本地电脑的代理实现科学上网.md",
               "type": "file",
               "path": "note/dev/让远程服务器走本地电脑的代理实现科学上网.md"
@@ -45,6 +40,11 @@
           "type": "folder",
           "path": "note/测试",
           "children": [
+            {
+              "name": "我的第一篇笔记.md",
+              "type": "file",
+              "path": "note/测试/我的第一篇笔记.md"
+            },
             {
               "name": "测试教程.md",
               "type": "file",
