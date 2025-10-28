@@ -19,6 +19,16 @@
               "path": "note/dev/国内环境安装 uv.md"
             },
             {
+              "name": "小马算力 API 代理.md",
+              "type": "file",
+              "path": "note/dev/小马算力 API 代理.md"
+            },
+            {
+              "name": "心流 iflow API 代理.md",
+              "type": "file",
+              "path": "note/dev/心流 iflow API 代理.md"
+            },
+            {
               "name": "我的第一篇笔记.md",
               "type": "file",
               "path": "note/dev/我的第一篇笔记.md"
