@@ -4,10 +4,15 @@
 
 ## 文章列表
 
+### API 代理
+
+- [Anannas API 代理](#note/API%20代理/Anannas%20API%20代理.md) 2025-10-29
+- [小马算力 API 代理](#note/API%20代理/小马算力%20API%20代理.md) 2025-10-29
+- [心流 iflow API 代理](#note/API%20代理/心流%20iflow%20API%20代理.md) 2025-10-29
+
 ### dev
 
-- [小马算力 API 代理](#note/dev/小马算力%20API%20代理.md) 2025-10-28
-- [心流 iflow API 代理](#note/dev/心流%20iflow%20API%20代理.md) 2025-10-28
+- [常用 git 命令](#note/dev/常用%20git%20命令.md) 2025-10-29
 - [让远程服务器走本地电脑的代理实现科学上网](#note/dev/让远程服务器走本地电脑的代理实现科学上网.md) 2025-10-25
 - [uv 安装](#note/dev/国内环境安装%20uv.md) 2025-10-15
 

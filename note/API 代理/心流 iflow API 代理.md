@@ -11,6 +11,8 @@
 
 由于官方 API 没有模型列表接口，特此做此代理，从官网网页上获取模型列表，其他请求透传给官方接口 https://apis.iflow.cn
 
+cloudflare workers 部署：
+
 ```js
 export default {
   async fetch(req, env, ctx) {
