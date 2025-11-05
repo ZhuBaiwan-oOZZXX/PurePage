@@ -49,25 +49,30 @@
               "name": "让远程服务器走本地电脑的代理实现科学上网.md",
               "type": "file",
               "path": "note/dev/让远程服务器走本地电脑的代理实现科学上网.md"
-            }
-          ]
-        },
-        {
-          "name": "测试",
-          "type": "folder",
-          "path": "note/测试",
-          "children": [
-            {
-              "name": "我的第一篇笔记.md",
-              "type": "file",
-              "path": "note/测试/我的第一篇笔记.md"
             },
             {
-              "name": "测试教程.md",
+              "name": "豆包网页开启黑暗主题.md",
               "type": "file",
-              "path": "note/测试/测试教程.md"
+              "path": "note/dev/豆包网页开启黑暗主题.md"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "测试",
+      "type": "folder",
+      "path": "测试",
+      "children": [
+        {
+          "name": "我的第一篇笔记.md",
+          "type": "file",
+          "path": "测试/我的第一篇笔记.md"
+        },
+        {
+          "name": "测试教程.md",
+          "type": "file",
+          "path": "测试/测试教程.md"
         }
       ]
     }

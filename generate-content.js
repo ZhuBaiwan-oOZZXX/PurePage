@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // 定义要扫描的目录
-const SCAN_DIRS = ['note'];
+const SCAN_DIRS = ['note', '测试'];
 
 /**
  * 获取指定目录的递归文件结构
@@ -143,7 +143,7 @@ function getMdFilesInfo(directory, rootDir) {
 function organizeArticlesByFolder(mdFilesInfo) {
     const folderMap = {};
     
-    // 按文件夹分组
+    // 按文件夹分组并排序
     mdFilesInfo.forEach(fileInfo => {
         const dir = fileInfo.dir;
         if (!folderMap[dir]) {
@@ -153,9 +153,9 @@ function organizeArticlesByFolder(mdFilesInfo) {
     });
     
     // 对每个文件夹内的文章按时间排序
-    for (const dir in folderMap) {
-        folderMap[dir].sort((a, b) => new Date(b.createTime) - new Date(a.createTime));
-    }
+    Object.values(folderMap).forEach(files => {
+        files.sort((a, b) => new Date(b.createTime) - new Date(a.createTime));
+    });
     
     return folderMap;
 }
@@ -180,23 +180,82 @@ function generateIndex() {
     if (mdFilesInfo.length > 0) {
         const folderMap = organizeArticlesByFolder(mdFilesInfo);
         
-        // 按文件夹名称排序
-        const sortedFolders = Object.keys(folderMap).sort();
+        // 构建目录树结构
+        const folderTree = {};
         
-        for (const folder of sortedFolders) {
-            // 添加文件夹标题
-            const folderDisplayName = folder.startsWith('note/') ? folder.substring(5) : folder;
-            articleListContent += `### ${folderDisplayName || '根目录'}\n\n`;
+        // 初始化树结构
+        Object.keys(folderMap).forEach(folderPath => {
+            const parts = folderPath.split('/');
+            let currentNode = folderTree;
             
-            // 添加该文件夹下的文章
-            for (const fileInfo of folderMap[folder]) {
-                // 只对空格进行编码，其他字符保持原样
-                const encodedPath = fileInfo.path.replace(/ /g, '%20');
-                articleListContent += `- [${fileInfo.title}](#${encodedPath}) ${fileInfo.createTime}\n`;
-                console.log(`=> ${fileInfo.createTime} #${encodedPath}`);
+            // 逐级创建目录节点
+            for (let i = 0; i < parts.length; i++) {
+                const part = parts[i];
+                if (!currentNode[part]) {
+                    currentNode[part] = {
+                        name: part,
+                        path: parts.slice(0, i + 1).join('/'),
+                        children: {},
+                        files: []
+                    };
+                }
+                
+                // 如果是最后一级，添加文件列表
+                if (i === parts.length - 1) {
+                    currentNode[part].files = folderMap[folderPath];
+                }
+                
+                currentNode = currentNode[part].children;
             }
-            articleListContent += '\n';
+        });
+        
+        // 递归渲染目录树
+        function renderTree(tree, depth = 0) {
+            let content = '';
+            
+            Object.values(tree).forEach(node => {
+                // 显示目录名（带适当的标题级别）
+                if (depth === 0) {
+                    // 根目录级别
+                    const displayName = node.path.startsWith('note/') ? 
+                        node.path.substring(5) : node.name;
+                    content += `### ${displayName}\n\n`;
+                } else {
+                    // 子目录级别使用四级标题
+                    const indentSpaces = '  '.repeat(depth - 1);
+                    content += `${indentSpaces}#### ${node.name}\n`;
+                }
+                
+                // 显示该目录下的文件
+                if (node.files && node.files.length > 0) {
+                    const indentSpaces = depth > 0 ? '  '.repeat(depth) : '';
+                    node.files.forEach(fileInfo => {
+                        const encodedPath = fileInfo.path.replace(/ /g, '%20');
+                        content += `${indentSpaces}- [${fileInfo.title}](#${encodedPath}) ${fileInfo.createTime}\n`;
+                        console.log(`=> ${fileInfo.createTime} #${encodedPath}`);
+                    });
+                    content += '\n';
+                }
+                
+                // 递归渲染子目录
+                if (Object.keys(node.children).length > 0) {
+                    content += renderTree(node.children, depth + 1);
+                }
+            });
+            
+            return content;
         }
+        
+        // 按字母顺序排序根节点
+        const sortedFolderTree = {};
+        const keys = Object.keys(folderTree);
+        keys.sort().forEach(key => {
+            sortedFolderTree[key] = folderTree[key];
+        });
+        
+        // 渲染目录树并移除末尾多余的换行
+        articleListContent = renderTree(sortedFolderTree).trimEnd();
+        
     } else {
         articleListContent = "暂无文章，请添加文章到note目录。\n";
     }
