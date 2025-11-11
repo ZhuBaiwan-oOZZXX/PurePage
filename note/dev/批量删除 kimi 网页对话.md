@@ -6,14 +6,10 @@
 
 F12 打开控制台，输入以下代码：
 
+```js
+document.querySelectorAll('input[type=checkbox]:not(:checked)').forEach(c=>c.click())
 ```
-$$('input:not(:checked)').map(i=>i.click())
-```
-
-1. `$$('input:not(:checked)')` – 浏览器控制台自带语法，等价于 `querySelectorAll`，挑出所有未勾选的 `<input>`。
-
-2. `.map(i=>i.click())` – 对每个复选框执行一次点击打勾。
-
+    
 效果如下：
 
 ![](../../assets/kimi选中复选框.gif)
