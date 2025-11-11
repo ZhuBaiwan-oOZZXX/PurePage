@@ -7,6 +7,7 @@
 ### note
 
 #### API 代理
+  - [百灵大模型 API 代理](#note/API%20代理/百灵大模型%20API%20代理.md) 2025-11-11
   - [Anannas API 代理](#note/API%20代理/Anannas%20API%20代理.md) 2025-11-10
   - [小马算力 API 代理](#note/API%20代理/小马算力%20API%20代理.md) 2025-11-10
   - [心流 iflow API 代理](#note/API%20代理/心流%20iflow%20API%20代理.md) 2025-10-29
