@@ -32,6 +32,11 @@
               "name": "百灵大模型 API 代理.md",
               "type": "file",
               "path": "note/API 代理/百灵大模型 API 代理.md"
+            },
+            {
+              "name": "美团LongCat API代理.md",
+              "type": "file",
+              "path": "note/API 代理/美团LongCat API代理.md"
             }
           ]
         },
