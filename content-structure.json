@@ -46,6 +46,11 @@
           "path": "note/dev",
           "children": [
             {
+              "name": "git 下载与配置.md",
+              "type": "file",
+              "path": "note/dev/git 下载与配置.md"
+            },
+            {
               "name": "国内环境安装 uv.md",
               "type": "file",
               "path": "note/dev/国内环境安装 uv.md"

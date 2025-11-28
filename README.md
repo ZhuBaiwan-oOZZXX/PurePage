@@ -18,6 +18,9 @@
 
 首先 Fork 本仓库到你的 GitHub 账户，然后下载项目到本地。
 
+> [!IMPORTANT]
+> 如果你还没有安装 [nodejs](https://nodejs.org/en/download)，请前往官网下载>。
+
 ### 2. 修改博客与侧边栏标题
 
 修改 [index.html](./index.html) 文件：
