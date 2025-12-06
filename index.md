@@ -14,6 +14,7 @@
   - [心流 iflow API 代理](#note/API%20代理/心流%20iflow%20API%20代理.md) 2025-10-29
 
 #### dev
+  - [Cherry Studio 美化](#note/dev/Cherry%20Studio%20美化.md) 2025-12-06
   - [git 下载与配置.md](#note/dev/git%20下载与配置.md) 2025-11-28
   - [霍格沃茨魔法学校](#note/dev/霍格沃茨魔法学校.md) 2025-11-15
   - [批量删除 kimi 网页对话](#note/dev/批量删除%20kimi%20网页对话.md) 2025-11-11
