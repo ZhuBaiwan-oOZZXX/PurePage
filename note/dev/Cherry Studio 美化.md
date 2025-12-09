@@ -1,16 +1,16 @@
 # Cherry Studio 美化
 
-字体选用的 **霞鹜文楷等宽** 与 **Maple Mono**，先看看效果:
+字体选用的 **霞鹜文楷屏幕阅读版等宽** 与 **Maple Mono**，先看看效果:
 
 ![cherry-css-light](../../assets/cherry-css-light.png)
 ![cherry-css-dark](../../assets/cherry-css-dark.png)
 
 
 ## 下载字体
-- 霞鹜文楷：https://github.com/lxgw/LxgwWenKai/releases
+- 霞鹜文楷屏幕阅读版：https://github.com/lxgw/LxgwWenKai-Screen/releases
 - Maple Mono：https://font.subf.dev/zh-cn/download
 
-下载字体文件 (.zip)，解压后将字体文件 (.ttf) 复制到系统字体目录 (Windows: `C:\Windows\Fonts`)。
+下载字体文件 (.zip)，解压后将字体文件 (.ttf) 复制到系统字体目录 (Windows 为 `C:\Windows\Fonts`)。
 
 ![](../../assets/Windows%20安装字体.png)
 
@@ -55,8 +55,6 @@ body[theme-mode='dark'] {
 }
 
 
-
-
 /* 代码块透明背景 */
 div.shiki,
 .markdown pre {
@@ -68,6 +66,7 @@ div[class^="CodeHeader-"] {
 }
 
 
+/* https://github.com/BoningtonChen/CherryStudio_themes/blob/master/themes/just-flowing-border.css */
 
 /* 优雅流彩动画 */
 @keyframes elegantFlow {
@@ -134,21 +133,20 @@ div[class^="CodeHeader-"] {
 
 
 
-
 /* Markdown 内容样式 */
 /* Light模式样式 */
-body[theme-mode="light"] .markdown { color: #5C6A72; }
-body[theme-mode="light"] .markdown h1 { font-size: 2em; color: #FF5252; border: none; padding-bottom: 0; font-weight: 600; }
-body[theme-mode="light"] .markdown h2 { font-size: 1.75em; color: #F57D26; border: none; padding-bottom: 0; font-weight: 600; }
-body[theme-mode="light"] .markdown h3 { font-size: 1.5em; color: #DFA000; border: none; padding-bottom: 0; font-weight: 600; }
-body[theme-mode="light"] .markdown h4 { font-size: 1.25em; color: #4CAF50; border: none; padding-bottom: 0; font-weight: 600; }
-body[theme-mode="light"] .markdown h5 { font-size: 1.1em; color: #03A9F4; border: none; padding-bottom: 0; font-weight: 600; }
-body[theme-mode="light"] .markdown h6 { font-size: 1em; color: #673AB7; border: none; padding-bottom: 0; font-weight: 600; }
+body[theme-mode="light"] .markdown { color: #4A5568; }
+body[theme-mode="light"] .markdown h1 { font-size: 2em; color: #D34242; border: none; padding-bottom: 0; font-weight: 600; }
+body[theme-mode="light"] .markdown h2 { font-size: 1.75em; color: #D9775D; border: none; padding-bottom: 0; font-weight: 600; }
+body[theme-mode="light"] .markdown h3 { font-size: 1.5em; color: #C6894D; border: none; padding-bottom: 0; font-weight: 600; }
+body[theme-mode="light"] .markdown h4 { font-size: 1.25em; color: #5A8F5A; border: none; padding-bottom: 0; font-weight: 600; }
+body[theme-mode="light"] .markdown h5 { font-size: 1.1em; color: #5C8CBF; border: none; padding-bottom: 0; font-weight: 600; }
+body[theme-mode="light"] .markdown h6 { font-size: 1em; color: #7A6BA8; border: none; padding-bottom: 0; font-weight: 600; }
 body[theme-mode="light"] .markdown strong { color: #B55A5A; font-weight: bold; }
 body[theme-mode="light"] .markdown em { color: #829181; font-style: italic; }
 body[theme-mode="light"] .markdown hr { border: none; height: 1px; background: linear-gradient(90deg, transparent, #E5FFFF, transparent); }
 body[theme-mode="light"] .markdown a { color: #3795C5; text-decoration: none; border-bottom: 1px solid rgba(141,161,1,0.2); }
-body[theme-mode="light"] .markdown blockquote { padding: 1rem 1.5rem; margin: 1.5rem 0; background-color: #efebd4; border-left: 4px solid #bec5b2; border-radius: 8px; }
+body[theme-mode="light"] .markdown blockquote { margin: 0; background-color: rgba(239, 235, 212, 0.4); border-left: 4px solid #bec5b2; border-radius: 8px; }
 
 /* Dark模式样式 */
 body[theme-mode="dark"] .markdown { color: #d3c6aa; }
@@ -162,7 +160,7 @@ body[theme-mode="dark"] .markdown strong { color: #B55A5A; font-weight: bold; }
 body[theme-mode="dark"] .markdown em { color: #9da9a0; font-style: italic; }
 body[theme-mode="dark"] .markdown hr { border: none; height: 1px; background: linear-gradient(90deg, transparent, #E5FFFF, transparent); }
 body[theme-mode="dark"] .markdown a { color: #7fbbb3; text-decoration: none; border-bottom: 1px solid rgba(167,192,128,0.2); }
-body[theme-mode="dark"] .markdown blockquote { padding: 1rem 1.5rem; margin: 1.5rem 0; background-color: #283035; border-left: 4px solid #4f585e; border-radius: 8px; }
+body[theme-mode="dark"] .markdown blockquote { margin: 0; background-color: rgba(40, 48, 53, 0.4); border-left: 4px solid #4f585e; border-radius: 8px; }
 
 /* 脚注样式 */
 .footnotes { margin: 1em 0; padding: 8px 12px; border-radius: 8px; background-color: transparent; }
