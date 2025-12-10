@@ -7,7 +7,7 @@
 
 
 ## 下载字体
-- 霞鹜文楷屏幕阅读版：https://github.com/lxgw/LxgwWenKai-Screen/releases
+- 霞鹜文楷屏幕阅读版：https://github.com/lxgw/LxgwWenKai-Screen/releases （这里选一个就行，我选的 LXGWWenKaiMonoScreen.ttf）
 - Maple Mono：https://font.subf.dev/zh-cn/download
 
 下载字体文件 (.zip)，解压后将字体文件 (.ttf) 复制到系统字体目录 (Windows 为 `C:\Windows\Fonts`)。
