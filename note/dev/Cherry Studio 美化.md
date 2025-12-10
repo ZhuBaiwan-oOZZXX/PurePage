@@ -1,29 +1,29 @@
 # Cherry Studio 美化
 
+## 一、效果展示
 字体选用的 **霞鹜文楷屏幕阅读版等宽** 与 **Maple Mono**，先看看效果:
 
 ![cherry-css-light](../../assets/cherry-css-light.png)
 ![cherry-css-dark](../../assets/cherry-css-dark.png)
 
 
-## 下载字体
-- 霞鹜文楷屏幕阅读版：https://github.com/lxgw/LxgwWenKai-Screen/releases （这里选一个就行，我选的 LXGWWenKaiMonoScreen.ttf）
-- Maple Mono：https://font.subf.dev/zh-cn/download
-
-下载字体文件 (.zip)，解压后将字体文件 (.ttf) 复制到系统字体目录 (Windows 为 `C:\Windows\Fonts`)。
+## 二、下载字体
+- Maple Mono：https://font.subf.dev/zh-cn/download （下载文件 .zip，解压后将每个字体文件 .ttf 复制到系统字体目录 `C:\Windows\Fonts`）
+- 霞鹜文楷屏幕阅读版：https://github.com/lxgw/LxgwWenKai-Screen/releases （这选一个就行，我选的 LXGWWenKaiMonoScreen.ttf）
 
 ![](../../assets/Windows%20安装字体.png)
 
-## Cherry Studio 美化
+## 三、Cherry Studio 美化
 Cherry Studio 显示设置里选择字体，如果没有显示字体，就重启 Cherry Studio/电脑。
 ![](../../assets/cherry%20选择字体.png)
 
 最下面的`自定义 CSS`里粘贴以下 CSS 片段：
+> 背景图片体积较大，第一次加载会比较慢。
 
 ```CSS
 :root {
-  --light-background-image: url('https://gh-proxy.com/https://raw.githubusercontent.com/ZhuBaiwan-oOZZXX/HomePage/master/icons/background/wallpaper-light.png');
-  --dark-background-image: url('https://gh-proxy.com/https://raw.githubusercontent.com/ZhuBaiwan-oOZZXX/HomePage/master/icons/background/wallpaper-dark.png');
+  --light-background-image: url('https://free.cdn.tulan.cyou/2025/12/10/wallpaper-light.png');
+  --dark-background-image: url('https://free.cdn.tulan.cyou/2025/12/10/wallpaper-dark.png');
 }
 
 body[theme-mode='light'] {
@@ -165,5 +165,3 @@ body[theme-mode="dark"] .markdown blockquote { margin: 0; background-color: rgba
 /* 脚注样式 */
 .footnotes { margin: 1em 0; padding: 8px 12px; border-radius: 8px; background-color: transparent; }
 ```
-
-背景图片体积较大，第一次加载会比较慢。
