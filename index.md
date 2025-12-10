@@ -15,9 +15,9 @@
 
 #### dev
   - [Cherry Studio 美化](#note/dev/Cherry%20Studio%20美化.md) 2025-12-10
+  - [霍格沃茨魔法学校](#note/dev/霍格沃茨魔法学校.md) 2025-12-10
   - [Windows 上禁用 CapsLock 键](#note/dev/Windows%20上禁用%20CapsLock%20键.md) 2025-12-09
   - [git 下载与配置.md](#note/dev/git%20下载与配置.md) 2025-11-28
-  - [霍格沃茨魔法学校](#note/dev/霍格沃茨魔法学校.md) 2025-11-15
   - [批量删除 kimi 网页对话](#note/dev/批量删除%20kimi%20网页对话.md) 2025-11-11
   - [常用 git 命令](#note/dev/常用%20git%20命令.md) 2025-11-05
   - [豆包网页开启黑暗主题](#note/dev/豆包网页开启黑暗主题.md) 2025-11-05
