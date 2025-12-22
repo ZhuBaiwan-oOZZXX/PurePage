@@ -14,7 +14,7 @@
   - [心流 iflow API 代理](#note/API%20代理/心流%20iflow%20API%20代理.md) 2025-10-29
 
 #### dev
-  - [霍格沃茨魔法学校](#note/dev/霍格沃茨魔法学校.md) 2025-12-20
+  - [霍格沃茨魔法学校](#note/dev/霍格沃茨魔法学校.md) 2025-12-22
   - [Cherry Studio 美化](#note/dev/Cherry%20Studio%20美化.md) 2025-12-10
   - [Windows 上禁用 CapsLock 键](#note/dev/Windows%20上禁用%20CapsLock%20键.md) 2025-12-09
   - [git 下载与配置.md](#note/dev/git%20下载与配置.md) 2025-11-28
