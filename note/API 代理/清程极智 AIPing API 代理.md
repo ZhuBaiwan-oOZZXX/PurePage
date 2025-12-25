@@ -8,7 +8,7 @@
 
 ```js
 export default {
-  async fetch(req, env, ctx) {
+  async fetch(req) {
     const url = new URL(req.url);
     
     // 处理根路径
@@ -33,7 +33,7 @@ export default {
     }
 
     // 其他请求透明转发
-    return fetch(new URL(url.pathname + url.search, "https://aiping.cn/api"), req);
+    return fetch(`https://aiping.cn/api${url.pathname}${url.search}`, req);
   }
 };
 ```
