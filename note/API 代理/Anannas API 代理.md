@@ -1,4 +1,4 @@
-# Anannas API 代理
+# Anannas API 代理 (这家已死)
 
 官网：https://anannas.ai
 

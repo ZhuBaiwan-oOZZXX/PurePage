@@ -29,14 +29,19 @@
               "path": "note/API 代理/心流 iflow API 代理.md"
             },
             {
+              "name": "清程极智 AIPing API 代理.md",
+              "type": "file",
+              "path": "note/API 代理/清程极智 AIPing API 代理.md"
+            },
+            {
               "name": "百灵大模型 API 代理.md",
               "type": "file",
               "path": "note/API 代理/百灵大模型 API 代理.md"
             },
             {
-              "name": "美团LongCat API代理.md",
+              "name": "美团 LongCat API代理.md",
               "type": "file",
-              "path": "note/API 代理/美团LongCat API代理.md"
+              "path": "note/API 代理/美团 LongCat API代理.md"
             }
           ]
         },
