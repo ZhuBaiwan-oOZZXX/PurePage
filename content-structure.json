@@ -81,6 +81,11 @@
               "path": "note/dev/批量删除 kimi 网页对话.md"
             },
             {
+              "name": "智谱 coding plan 接入 NewAPI.md",
+              "type": "file",
+              "path": "note/dev/智谱 coding plan 接入 NewAPI.md"
+            },
+            {
               "name": "让远程服务器走本地电脑的代理实现科学上网.md",
               "type": "file",
               "path": "note/dev/让远程服务器走本地电脑的代理实现科学上网.md"
