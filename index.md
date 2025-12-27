@@ -15,6 +15,7 @@
   - [心流 iflow API 代理](#note/API%20代理/心流%20iflow%20API%20代理.md) 2025-10-29
 
 #### dev
+  - [Windows 设置命令别名（alias）](#note/dev/Windows%20设置命令别名（alias）.md) 2025-12-27
   - [智谱 coding plan 接入 NewAPI](#note/dev/智谱%20coding%20plan%20接入%20NewAPI.md) 2025-12-25
   - [霍格沃茨魔法学校](#note/dev/霍格沃茨魔法学校.md) 2025-12-22
   - [Cherry Studio 美化](#note/dev/Cherry%20Studio%20美化.md) 2025-12-10

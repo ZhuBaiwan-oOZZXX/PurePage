@@ -66,6 +66,11 @@
               "path": "note/dev/Windows 上禁用 CapsLock 键.md"
             },
             {
+              "name": "Windows 设置命令别名（alias）.md",
+              "type": "file",
+              "path": "note/dev/Windows 设置命令别名（alias）.md"
+            },
+            {
               "name": "国内环境安装 uv.md",
               "type": "file",
               "path": "note/dev/国内环境安装 uv.md"
