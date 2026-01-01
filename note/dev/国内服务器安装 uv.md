@@ -1,4 +1,4 @@
-# uv 安装
+# 国内服务器安装 uv
 
 > uv 官方文档：https://docs.astral.sh/uv/getting-started/installation/
 
