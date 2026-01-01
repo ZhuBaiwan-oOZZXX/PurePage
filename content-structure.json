@@ -61,6 +61,11 @@
               "path": "note/dev/git 下载与配置.md"
             },
             {
+              "name": "TG 获取 Channel ID 与 TG_BOT_TOKEN.md",
+              "type": "file",
+              "path": "note/dev/TG 获取 Channel ID 与 TG_BOT_TOKEN.md"
+            },
+            {
               "name": "Windows 上禁用 CapsLock 键.md",
               "type": "file",
               "path": "note/dev/Windows 上禁用 CapsLock 键.md"
