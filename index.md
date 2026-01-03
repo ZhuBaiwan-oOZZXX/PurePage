@@ -15,6 +15,7 @@
   - [心流 iflow API 代理](#note/API%20代理/心流%20iflow%20API%20代理.md) 2025-10-29
 
 #### dev
+  - [修复 Windows 数字显示成符号的异常](#note/dev/修复%20Windows%20数字显示成符号的异常.md) 2026-01-03
   - [git 下载与配置.md](#note/dev/git%20下载与配置.md) 2026-01-01
   - [TG 获取 Channel ID 与 TG_BOT_TOKEN](#note/dev/TG%20获取%20Channel%20ID%20与%20TG_BOT_TOKEN.md) 2026-01-01
   - [国内服务器安装 uv](#note/dev/国内服务器安装%20uv.md) 2026-01-01

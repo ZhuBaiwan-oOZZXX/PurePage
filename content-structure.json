@@ -76,6 +76,11 @@
               "path": "note/dev/Windows 设置命令别名（alias）.md"
             },
             {
+              "name": "修复 Windows 数字显示成符号的异常.md",
+              "type": "file",
+              "path": "note/dev/修复 Windows 数字显示成符号的异常.md"
+            },
+            {
               "name": "国内服务器安装 uv.md",
               "type": "file",
               "path": "note/dev/国内服务器安装 uv.md"
