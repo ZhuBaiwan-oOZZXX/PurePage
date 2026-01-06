@@ -15,12 +15,12 @@
   - [心流 iflow API 代理](#note/API%20代理/心流%20iflow%20API%20代理.md) 2025-10-29
 
 #### dev
+  - [git 下载与配置.md](#note/dev/git%20下载与配置.md) 2026-01-06
+  - [国内服务器安装 uv](#note/dev/国内服务器安装%20uv.md) 2026-01-06
+  - [智谱 coding plan 接入 NewAPI](#note/dev/智谱%20coding%20plan%20接入%20NewAPI.md) 2026-01-06
   - [修复 Windows 数字显示成符号的异常](#note/dev/修复%20Windows%20数字显示成符号的异常.md) 2026-01-03
-  - [git 下载与配置.md](#note/dev/git%20下载与配置.md) 2026-01-01
   - [TG 获取 Channel ID 与 TG_BOT_TOKEN](#note/dev/TG%20获取%20Channel%20ID%20与%20TG_BOT_TOKEN.md) 2026-01-01
-  - [国内服务器安装 uv](#note/dev/国内服务器安装%20uv.md) 2026-01-01
   - [Windows 设置命令别名（alias）](#note/dev/Windows%20设置命令别名（alias）.md) 2025-12-27
-  - [智谱 coding plan 接入 NewAPI](#note/dev/智谱%20coding%20plan%20接入%20NewAPI.md) 2025-12-25
   - [霍格沃茨魔法学校](#note/dev/霍格沃茨魔法学校.md) 2025-12-22
   - [Cherry Studio 美化](#note/dev/Cherry%20Studio%20美化.md) 2025-12-10
   - [Windows 上禁用 CapsLock 键](#note/dev/Windows%20上禁用%20CapsLock%20键.md) 2025-12-09

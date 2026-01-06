@@ -15,7 +15,7 @@ INSTALLER_BASE_URL="${UV_INSTALLER_GITHUB_BASE_URL:-https://github.com}"
 将它修改为：
 
 ```bash
-INSTALLER_BASE_URL="${UV_INSTALLER_GITHUB_BASE_URL:-https://proxy.zhubaiwan.me/https://github.com}"
+INSTALLER_BASE_URL="${UV_INSTALLER_GITHUB_BASE_URL:-https://proxy.baiwan.de/https://github.com}"
 ```
 
 继续安装：
@@ -24,7 +24,7 @@ chmod +x uv-installer.sh
 ./uv-installer.sh
 ```
 
-也就是把 github 代理一下，你可以使用这个项目在 cloudflare 上搭建一个自己的代理地址：https://github.com/ymyuuu/Cloudflare-Workers-Proxy ，也可以直接用我上面的链接（2026.01 域名到期失效）
+也就是把 github 代理一下，你可以使用这个项目在 cloudflare 上搭建一个自己的代理地址：https://github.com/ymyuuu/Cloudflare-Workers-Proxy ，也可以直接用我上面的链接。
 
 ## pip install 换源
 

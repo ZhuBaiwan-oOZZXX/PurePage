@@ -1,7 +1,11 @@
 # 智谱 coding plan 接入 NewAPI
 
 - 类型：自定义渠道
-- Base URL：`https://open.bigmodel.cn/api/coding/paas/v4/chat/completions`
+- Base URL：
+```
+https://open.bigmodel.cn/api/coding/paas/v4/chat/completions
+```
+
 - 请求头覆盖（可选）：
 ```json
 {

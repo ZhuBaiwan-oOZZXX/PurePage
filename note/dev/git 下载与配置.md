@@ -11,6 +11,9 @@ git config --global user.name "朱百万oOZZXX"
 
 # 设置全局邮箱
 git config --global user.email "zhubaiwan.oozzxx@gmail.com"
+
+# 设置全局默认分支为 main (可选)
+git config --global init.defaultBranch main
 ```
 
 配置完实际上是在电脑上的 `C:\Users\用户名\.gitconfig` 文件写入了以下信息：
@@ -19,6 +22,14 @@ git config --global user.email "zhubaiwan.oozzxx@gmail.com"
 [user]
 	name = 朱百万oOZZXX
 	email = zhubaiwan.oozzxx@gmail.com
+[init]
+	defaultBranch = main
 ```
 
-配置后好就可以正常使用啦
+你也可以用此命令查看全局配置：
+
+```bash
+git config --global --list
+```
+
+配置后好就可以正常使用啦~
