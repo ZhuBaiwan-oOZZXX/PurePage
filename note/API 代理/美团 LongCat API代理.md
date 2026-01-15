@@ -1,4 +1,4 @@
-# 百灵大模型 API 代理
+# 美团 LongCat API 代理
 
 API 获取页面：https://longcat.chat/platform/usage
 
@@ -23,7 +23,8 @@ export default {
       return Response.json({ 
         data: [
           { id: "LongCat-Flash-Chat", object: "model" },
-          { id: "LongCat-Flash-Thinking", object: "model" }
+          { id: "LongCat-Flash-Thinking", object: "model" },
+          { id: "LongCat-Flash-Thinking-2601", object: "model" },
         ], 
         object: "list" 
       })

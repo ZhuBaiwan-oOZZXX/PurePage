@@ -7,15 +7,15 @@
 ### note
 
 #### API 代理
-  - [Anannas API 代理 (这家已死)](#note/API%20代理/Anannas%20API%20代理.md) 2025-12-25
+  - [美团 LongCat API代理](#note/API%20代理/美团%20LongCat%20API代理.md) 2026-01-15
+  - [Anannas API 代理](#note/API%20代理/Anannas%20API%20代理.md) 2025-12-25
   - [清程极智 AIPing API 代理](#note/API%20代理/清程极智%20AIPing%20API%20代理.md) 2025-12-25
   - [小马算力 API 代理](#note/API%20代理/小马算力%20API%20代理.md) 2025-12-09
-  - [百灵大模型 API 代理](#note/API%20代理/美团%20LongCat%20API代理.md) 2025-11-25
   - [百灵大模型 API 代理](#note/API%20代理/百灵大模型%20API%20代理.md) 2025-11-11
   - [心流 iflow API 代理](#note/API%20代理/心流%20iflow%20API%20代理.md) 2025-10-29
 
 #### dev
-  - [git 下载与配置.md](#note/dev/git%20下载与配置.md) 2026-01-06
+  - [git 下载与配置](#note/dev/git%20下载与配置.md) 2026-01-06
   - [国内服务器安装 uv](#note/dev/国内服务器安装%20uv.md) 2026-01-06
   - [智谱 coding plan 接入 NewAPI](#note/dev/智谱%20coding%20plan%20接入%20NewAPI.md) 2026-01-06
   - [修复 Windows 数字显示成符号的异常](#note/dev/修复%20Windows%20数字显示成符号的异常.md) 2026-01-03
@@ -31,7 +31,7 @@
 
 ### 测试
 
-- [这是一个测试文件，不记录任何内容](#测试/测试教程.md) 2025-10-28
+- [测试教程](#测试/测试教程.md) 2025-10-28
 - [我的第一篇笔记](#测试/我的第一篇笔记.md) 2025-10-25
 
 ## 开始写作
