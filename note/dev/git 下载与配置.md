@@ -1,4 +1,4 @@
-# git 下载与配置.md
+# git 下载与配置
 
 - git 官网：https://git-scm.com/
 - 下载过程选项可以参考：[git安装](https://www.bilibili.com/video/BV19EGkzWEV9)

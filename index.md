@@ -15,7 +15,8 @@
   - [心流 iflow API 代理](#note/API%20代理/心流%20iflow%20API%20代理.md) 2025-10-29
 
 #### dev
-  - [git 下载与配置](#note/dev/git%20下载与配置.md) 2026-01-06
+  - [iKuuu 机场签到脚本](#note/dev/iKuuu%20机场签到脚本.md) 2026-01-17
+  - [git 下载与配置](#note/dev/git%20下载与配置.md) 2026-01-15
   - [国内服务器安装 uv](#note/dev/国内服务器安装%20uv.md) 2026-01-06
   - [智谱 coding plan 接入 NewAPI](#note/dev/智谱%20coding%20plan%20接入%20NewAPI.md) 2026-01-06
   - [修复 Windows 数字显示成符号的异常](#note/dev/修复%20Windows%20数字显示成符号的异常.md) 2026-01-03

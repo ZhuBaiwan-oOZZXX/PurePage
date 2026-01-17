@@ -61,6 +61,11 @@
               "path": "note/dev/git 下载与配置.md"
             },
             {
+              "name": "iKuuu 机场签到脚本.md",
+              "type": "file",
+              "path": "note/dev/iKuuu 机场签到脚本.md"
+            },
+            {
               "name": "TG 获取 Channel ID 与 TG_BOT_TOKEN.md",
               "type": "file",
               "path": "note/dev/TG 获取 Channel ID 与 TG_BOT_TOKEN.md"
