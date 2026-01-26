@@ -263,4 +263,4 @@ export default {
 5. 这里我选择  `Cron 表达式`，表达式为：`0 8 * * *`，意思是美国时间早上 8 点执行任务（北京时间下午 4 点）。
 6. 无需绑定域名，自动执行任务。你也可以打开你的 workers.dev 域名，手动触发任务。
 
-效果展示：https://github.com/ZhuBaiwan-oOZZXX/PurePage/raw/main/assets/ikuu签到.mp4
+效果展示：https://github.com/ZhuBaiwan-oOZZXX/PurePage/blob/main/assets/ikuu签到.mp4
