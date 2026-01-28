@@ -2,7 +2,7 @@
 
 API 获取页面：https://longcat.chat/platform/usage
 
-每个账号每天 500 万 tokens 的额度（默认50 万 tokens，需要申请额度），当日未用完的额度不会转结到下一天。
+每个账号每天 500 万 tokens 的额度（默认50 万 tokens，可免费申请额度），当日未用完的额度不会转结到下一天。
 
 ## 透明代理
 

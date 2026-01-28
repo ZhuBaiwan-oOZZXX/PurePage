@@ -1,4 +1,6 @@
-# Anannas API 代理 (这家已死)
+# Anannas API 代理
+
+> 这家 API 已不再免费，不再做无意义的维护。
 
 官网：https://anannas.ai
 
