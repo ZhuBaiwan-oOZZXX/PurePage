@@ -6,7 +6,6 @@
 git reset --hard 5f433a5
 ```
 
-
 2. 强制将本地 main 分支的代码推送到远程 origin 仓库的 main 分支（危险）
 
 ```bash
@@ -21,7 +20,6 @@ git log --pretty=format:"%Cred%h%Creset | %Cgreen%an%Creset | %Cblue%ad%Creset |
 
 ![](../../assets/查看仓库提交历史记录（简洁显示）.png)
 
-
 4. 显示本地引用变动历史（所有操作轨迹）
 
 ```bash
@@ -29,7 +27,6 @@ git reflog
 ```
 
 ![](../../assets/git%20reflog.png)
-
 
 5. 把本地的 main 的上游设成远程 origin 的 main
 
@@ -52,4 +49,3 @@ git push -u origin main
 ```
 
 今后的 `git push` 和 `git pull` 就不用再写远程和分支名。
-

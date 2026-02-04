@@ -4,7 +4,7 @@
 
 ## 透明代理
 
-~~由于官方 API 没有模型列表接口，特此做此代理，从官网网页上获取模型列表，其他请求透传给官方接口 https://api.tokenpony.cn~~ 
+~~由于官方 API 没有模型列表接口，特此做此代理，从官网网页上获取模型列表，其他请求透传给官方接口 https://api.tokenpony.cn~~
 
 官方已添加模型列表接口，代码已经失去了意义。
 
@@ -27,7 +27,7 @@ export default {
       });
       const raw = await res.json();
       const list = raw.data?.list || [];
-      const models = list.map(m => ({
+      const models = list.map((m) => ({
         id: m.name.trim(),
         object: "model",
         context_window: `${m.contextLength}${m.unit}`,
@@ -42,6 +42,6 @@ export default {
       headers: req.headers,
       body: req.body,
     });
-  }
+  },
 };
 ```

@@ -144,123 +144,122 @@ const LOGIN_URL = `${BASE_URL}/auth/login`;
 const CHECKIN_URL = `${BASE_URL}/user/checkin`;
 const USER_URL = `${BASE_URL}/user`;
 
-const ACCOUNTS = [
-    { email: "你的邮箱", pwd: "你的密码" },
-];
+const ACCOUNTS = [{ email: "你的邮箱", pwd: "你的密码" }];
 
 function getHeaders(cookie = "") {
-    const headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
-        "Referer": BASE_URL,
-        "Origin": BASE_URL,
-        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
-    };
-    if (cookie) headers["Cookie"] = cookie;
-    return headers;
+  const headers = {
+    "User-Agent":
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+    Referer: BASE_URL,
+    Origin: BASE_URL,
+    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+  };
+  if (cookie) headers["Cookie"] = cookie;
+  return headers;
 }
 
 function extractCookies(response) {
-    const setCookie = response.headers.getSetCookie();
-    if (!setCookie || setCookie.length === 0) return "";
-    return setCookie.map(c => c.split(";")[0]).join("; ");
+  const setCookie = response.headers.getSetCookie();
+  if (!setCookie || setCookie.length === 0) return "";
+  return setCookie.map((c) => c.split(";")[0]).join("; ");
 }
 
 async function runCheckin() {
-    let logContent = `检测到 ${ACCOUNTS.length} 个账号，开始执行任务...\n\n`;
+  let logContent = `检测到 ${ACCOUNTS.length} 个账号，开始执行任务...\n\n`;
 
-    for (let i = 0; i < ACCOUNTS.length; i++) {
-        const account = ACCOUNTS[i];
-        logContent += `=== 开始处理第 ${i + 1} 个账号: ${account.email} ===\n`;
+  for (let i = 0; i < ACCOUNTS.length; i++) {
+    const account = ACCOUNTS[i];
+    logContent += `=== 开始处理第 ${i + 1} 个账号: ${account.email} ===\n`;
 
+    try {
+      const loginData = new URLSearchParams({
+        email: account.email,
+        passwd: account.pwd,
+        code: "",
+      });
+
+      const loginResp = await fetch(LOGIN_URL, {
+        method: "POST",
+        headers: getHeaders(),
+        body: loginData,
+      });
+
+      const cookies = extractCookies(loginResp);
+      const loginJson = await loginResp.json();
+
+      if (loginJson.ret !== 1) {
+        logContent += `登录失败: ${loginJson.msg}\n\n`;
+        continue;
+      }
+
+      logContent += "登录成功，准备签到...\n";
+
+      const checkinResp = await fetch(CHECKIN_URL, {
+        method: "POST",
+        headers: getHeaders(cookies),
+      });
+
+      const checkinJson = await checkinResp.json();
+      logContent += `签到结果: ${checkinJson.msg || "无返回消息"}\n`;
+
+      const userPageResp = await fetch(USER_URL, {
+        method: "GET",
+        headers: getHeaders(cookies),
+      });
+
+      const rawHtml = await userPageResp.text();
+      let finalHtml = rawHtml;
+
+      const originBodyMatch = rawHtml.match(/var originBody = "(.*?)";/);
+      if (originBodyMatch) {
         try {
-            const loginData = new URLSearchParams({
-                email: account.email,
-                passwd: account.pwd,
-                code: ""
-            });
-
-            const loginResp = await fetch(LOGIN_URL, {
-                method: "POST",
-                headers: getHeaders(),
-                body: loginData
-            });
-
-            const cookies = extractCookies(loginResp);
-            const loginJson = await loginResp.json();
-
-            if (loginJson.ret !== 1) {
-                logContent += `登录失败: ${loginJson.msg}\n\n`;
-                continue;
-            }
-
-            logContent += "登录成功，准备签到...\n";
-
-            const checkinResp = await fetch(CHECKIN_URL, {
-                method: "POST",
-                headers: getHeaders(cookies)
-            });
-
-            const checkinJson = await checkinResp.json();
-            logContent += `签到结果: ${checkinJson.msg || "无返回消息"}\n`;
-
-            const userPageResp = await fetch(USER_URL, {
-                method: "GET",
-                headers: getHeaders(cookies)
-            });
-
-            const rawHtml = await userPageResp.text();
-            let finalHtml = rawHtml;
-
-            const originBodyMatch = rawHtml.match(/var originBody = "(.*?)";/);
-            if (originBodyMatch) {
-                try {
-                    finalHtml = decodeURIComponent(escape(atob(originBodyMatch[1])));
-                } catch (e) {
-                    finalHtml = rawHtml;
-                }
-            }
-
-            const trafficMatch = finalHtml.match(/剩余流量.*?<span class="counter">(.*?)<\/span>/s);
-            let trafficInfo;
-            if (trafficMatch) {
-                trafficInfo = `${trafficMatch[1]} GB`;
-            } else {
-                const backupMatch = finalHtml.match(/<span class="counter">(.*?)<\/span>/);
-                trafficInfo = backupMatch ? `${backupMatch[1]} GB (可能不准)` : "提取失败";
-            }
-
-            logContent += `当前流量: ${trafficInfo}\n`;
-            logContent += "-".repeat(20) + "\n\n";
-
+          finalHtml = decodeURIComponent(escape(atob(originBodyMatch[1])));
         } catch (e) {
-            logContent += `账号 ${account.email} 发生异常: ${e.message}\n\n`;
+          finalHtml = rawHtml;
         }
-    }
+      }
 
-    return logContent;
+      const trafficMatch = finalHtml.match(/剩余流量.*?<span class="counter">(.*?)<\/span>/s);
+      let trafficInfo;
+      if (trafficMatch) {
+        trafficInfo = `${trafficMatch[1]} GB`;
+      } else {
+        const backupMatch = finalHtml.match(/<span class="counter">(.*?)<\/span>/);
+        trafficInfo = backupMatch ? `${backupMatch[1]} GB (可能不准)` : "提取失败";
+      }
+
+      logContent += `当前流量: ${trafficInfo}\n`;
+      logContent += "-".repeat(20) + "\n\n";
+    } catch (e) {
+      logContent += `账号 ${account.email} 发生异常: ${e.message}\n\n`;
+    }
+  }
+
+  return logContent;
 }
 
 export default {
-    async fetch(request, env, ctx) {
-        const logContent = await runCheckin();
-        return new Response(logContent, {
-            headers: { "Content-Type": "text/plain; charset=utf-8" }
-        });
-    },
+  async fetch(request, env, ctx) {
+    const logContent = await runCheckin();
+    return new Response(logContent, {
+      headers: { "Content-Type": "text/plain; charset=utf-8" },
+    });
+  },
 
-    async scheduled(event, env, ctx) {
-        const logContent = await runCheckin();
-        console.log(logContent);
-    }
+  async scheduled(event, env, ctx) {
+    const logContent = await runCheckin();
+    console.log(logContent);
+  },
 };
 ```
 
 部署方式：
+
 1. 新建一个 worker ，粘贴上面的 JS 代码
 2. 在 worker 的设置页面，找到 `触发事件` 并点击
 3. 在触发事件中选择 `Cron 触发器`
 4. 可以选择 `计划` 和 `Cron 表达式` 两种定时任务。如果 `计划` 中没有你满意的方案，你可以让 AI 给你写 `Cron 表达式`。
-5. 这里我选择  `Cron 表达式`，表达式为：`0 8 * * *`，意思是美国时间早上 8 点执行任务（北京时间下午 4 点）。
+5. 这里我选择 `Cron 表达式`，表达式为：`0 8 * * *`，意思是美国时间早上 8 点执行任务（北京时间下午 4 点）。
 6. 无需绑定域名，自动执行任务。你也可以打开你的 workers.dev 域名，手动触发任务。
 
 效果展示：https://github.com/ZhuBaiwan-oOZZXX/PurePage/blob/main/assets/ikuu签到.mp4

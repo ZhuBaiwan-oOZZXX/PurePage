@@ -13,28 +13,28 @@ cloudflare workers 部署：
 ```js
 export default {
   async fetch(request) {
-    const url = new URL(request.url)
-    
+    const url = new URL(request.url);
+
     if (url.pathname === "/") {
       return new Response("Hello World", { status: 200 });
     }
-    
-    if (url.pathname === '/models' || url.pathname === '/v1/models') {
-      return Response.json({ 
+
+    if (url.pathname === "/models" || url.pathname === "/v1/models") {
+      return Response.json({
         data: [
           { id: "Ling-1T", object: "model" },
-          { id: "Ring-1T", object: "model" }
-        ], 
-        object: "list" 
-      })
+          { id: "Ring-1T", object: "model" },
+        ],
+        object: "list",
+      });
     }
 
     const response = await fetch("https://api.tbox.cn/api/llm" + url.pathname + url.search, {
       method: request.method,
       headers: request.headers,
-      body: request.body
-    })
-    return response
-  }
-}
+      body: request.body,
+    });
+    return response;
+  },
+};
 ```

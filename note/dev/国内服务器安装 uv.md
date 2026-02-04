@@ -19,6 +19,7 @@ INSTALLER_BASE_URL="${UV_INSTALLER_GITHUB_BASE_URL:-https://proxy.baiwan.de/http
 ```
 
 继续安装：
+
 ```bash
 chmod +x uv-installer.sh
 ./uv-installer.sh
@@ -29,9 +30,11 @@ chmod +x uv-installer.sh
 ## pip install 换源
 
 可以尝试在 pyproject.toml 末尾添加：
+
 ```toml
 [[tool.uv.index]]
 url = "https://mirrors.aliyun.com/pypi/simple"
 default = true
 ```
+
 > 参考文档：https://blog.csdn.net/qq_43499921/article/details/152505617

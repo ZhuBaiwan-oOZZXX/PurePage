@@ -29,8 +29,8 @@ export default {
 
       const { data, object } = await res.json();
       const models = data
-        .filter(m => m.pricing?.input === 0 && m.pricing?.output === 0)
-        .map(m => ({
+        .filter((m) => m.pricing?.input === 0 && m.pricing?.output === 0)
+        .map((m) => ({
           id: m.id,
           object: m.object,
           context_window: m.context_window,
@@ -44,6 +44,6 @@ export default {
     }
 
     return fetch(new URL(url.pathname + url.search, "https://api.anannas.ai"), req);
-  }
+  },
 };
 ```

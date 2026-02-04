@@ -6,10 +6,11 @@
 
 心流的 API 密钥限时免费，但官方限制每七天需要手动重置密钥，否则七天过后会空回。
 
-
 ## 透明代理
 
-由于官方 API 没有模型列表接口，特此做此代理，从官网网页上获取模型列表，其他请求透传给官方接口 https://apis.iflow.cn
+> 由于官方已经添加了模型列表接口，代码不再有意义。
+
+~~由于官方 API 没有模型列表接口，特此做此代理，从官网网页上获取模型列表，其他请求透传给官方接口 https://apis.iflow.cn ~~
 
 cloudflare workers 部署：
 
@@ -35,7 +36,9 @@ export default {
           const name = m.modelName.trim();
           if (!name) continue;
           let tags = { modelSize: "", modelSeqLength: "" };
-          try { tags = JSON.parse(m.modelTags)[0] || tags; } catch {}
+          try {
+            tags = JSON.parse(m.modelTags)[0] || tags;
+          } catch {}
           models.push({
             id: name,
             object: "model",
@@ -52,6 +55,6 @@ export default {
       headers: req.headers,
       body: req.body,
     });
-  }
+  },
 };
 ```

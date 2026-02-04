@@ -7,18 +7,21 @@
 ## 操作步骤
 
 ### Step 1: 打开注册表编辑器
+
 首先，按下 Win + R，输入 regedit，并回车进入注册表编辑器。
 
 ### Step 2: 导航到键盘布局设置
+
 在注册表编辑器中，依次导航到以下路径：
 
 ```bash
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout 
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout
 ```
 
 ![](../../assets/注册表Keyboard.png)
 
 ### Step 3: 创建 Scancode Map 键值
+
 在右侧空白区域，右键选择 新建 > 二进制值，将其命名为 Scancode Map。然后，双击这个新建的键值，在弹出的编辑框中输入以下数据：
 
 ```plaintext
@@ -33,6 +36,7 @@ HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout
 ![](../../assets/禁用CapsLock.png)
 
 ### Step 4: 重启系统
+
 保存更改后，关闭注册表编辑器并重启电脑，Caps Lock 键就被成功禁用了。
 
 ## 原理解释
