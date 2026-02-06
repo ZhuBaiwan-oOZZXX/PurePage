@@ -6,7 +6,7 @@ API 获取页面：https://longcat.chat/platform/usage
 
 ## 透明代理
 
-由于官方 API 没有模型列表接口，特此做此代理增加模型列表返回。官方 API 暂时只支持 LongCat-Flash-Chat 和 LongCat-Flash-Chat-Thinking 两个模型，这里直接写死，其他请求透传给官方接口 https://api.longcat.chat/openai
+由于官方 API 没有模型列表接口，特此做此代理增加模型列表返回，由于从网页元素中正则提取模型名称，获取模型列表速度稍慢，其他请求透传给官方接口 https://api.longcat.chat/openai
 
 cloudflare workers 部署：
 
