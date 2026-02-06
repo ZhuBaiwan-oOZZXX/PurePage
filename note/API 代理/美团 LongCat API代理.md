@@ -11,31 +11,41 @@ API 获取页面：https://longcat.chat/platform/usage
 cloudflare workers 部署：
 
 ```js
+const DOCS_URL = "https://longcat.chat/platform/docs/zh/";
+const API_BASE = "https://api.longcat.chat/openai";
+
+async function fetchModels() {
+  const res = await fetch(DOCS_URL);
+  const html = await res.text();
+
+  const models = [];
+  for (const row of html.matchAll(/<tr>[\s\S]*?<\/tr>/gi)) {
+    const cell = row[0].match(/<t[dh]>([\s\S]*?)<\/t[dh]>/i)?.[1];
+    const name = cell?.replace(/<.*?>/g, "").trim();
+    if (name.includes("LongCat")) {
+      models.push({ id: name, object: "model" });
+    }
+  }
+  return models;
+}
+
 export default {
   async fetch(request) {
     const url = new URL(request.url);
 
     if (url.pathname === "/") {
-      return new Response("Hello World", { status: 200 });
+      return new Response("模型列表请查看 https://longcat.chat/platform/docs/zh/#支持的模型", { status: 200 });
     }
 
     if (url.pathname === "/models" || url.pathname === "/v1/models") {
+      const models = await fetchModels();
       return Response.json({
-        data: [
-          { id: "LongCat-Flash-Chat", object: "model" },
-          { id: "LongCat-Flash-Thinking", object: "model" },
-          { id: "LongCat-Flash-Thinking-2601", object: "model" },
-        ],
+        data: models,
         object: "list",
       });
     }
 
-    const response = await fetch("https://api.longcat.chat/openai" + url.pathname + url.search, {
-      method: request.method,
-      headers: request.headers,
-      body: request.body,
-    });
-    return response;
+    return fetch(API_BASE + url.pathname + url.search, request);
   },
 };
 ```
