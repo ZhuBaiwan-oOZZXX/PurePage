@@ -383,4 +383,5 @@ networks:
 ## 参考
 
 - [tech-shrimp/docker_installer](https://github.com/tech-shrimp/docker_installer)
+- [40分钟的Docker实战攻略，一期视频精通Docker](https://www.bilibili.com/video/BV1THKyzBER6)
 - [容器镜像监控](https://status.anye.xyz)
