@@ -63,6 +63,11 @@
               "path": "note/dev/Cherry Studio 美化.md"
             },
             {
+              "name": "docker 基础.md",
+              "type": "file",
+              "path": "note/dev/docker 基础.md"
+            },
+            {
               "name": "git 下载与配置.md",
               "type": "file",
               "path": "note/dev/git 下载与配置.md"
