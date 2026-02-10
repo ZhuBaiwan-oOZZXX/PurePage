@@ -68,6 +68,8 @@ sudo service docker restart
   - `-v`、`--volume`：将宿主机目录挂载到容器目录
   - `-e`、`--env`：设置环境变量
   - `--name <容器名称>`：为容器指定一个名称
+  - `--memory <内存限制>`：为容器设置内存限制，超出限制会自动终止，例如：128M、1G 等
+  - `--cpus <CPU 限制>`：为容器设置 CPU 限制，超出限制会自动终止，例如：0.5、1 等
   - `-it`：进入交互模式，分配一个伪终端
   - `--rm`：容器退出后自动删除容器
   - `--restart <重启策略>`：容器退出后自动重启容器，可选值为 `always`（总是重启）、`unless-stopped`（除非手动停止，否则总是重启）等
@@ -83,23 +85,23 @@ sudo service docker restart
 - 查看 Docker 容器列表：`docker ps`
   - `-a`、`--all`：显示所有容器（包含已停止的）
   - `-q`、`--quiet`：只显示容器 ID
-- 管理挂载卷：`docker volume`
-  - `create`：创建一个新的挂载卷
-  - `inspect`：显示挂载卷的详细信息
-  - `ls`、`list`：列出所有挂载卷
-  - `prune`：删除未使用的挂载卷
-    - `-a`、`--all`：删除所有未使用的挂载卷
+- 管理数据卷：`docker volume`
+  - `create`：创建一个新的数据卷
+  - `inspect`：显示数据卷的详细信息
+  - `ls`、`list`：列出所有数据卷
+  - `prune`：删除未使用的数据卷
+    - `-a`、`--all`：删除所有未使用的数据卷
     - `-f`、`--force`：无需确认提示
-  - `rm`、`remove`：删除指定的挂载卷
+  - `rm`、`remove`：删除指定的数据卷
 - 查看容器日志：`docker logs <容器ID>`、`docker container logs <容器ID>`
   - `-f`、`--follow`：实时查看日志，新日志会持续输出
-  - `--tail <行数>`：仅显示最后几行日志，默认值为 `10`
+  - `-n <行数>`、`--tail <行数>`：仅显示最后 n 行日志
 - 管理容器网络：`docker network`
   - `create <网络名称>`：创建一个新的网络
   - `ls`、`list`：列出所有网络
   - `rm`、`remove <网络名称>`：删除指定的网络
 - 获取容器详细信息：`docker inspect <容器ID>`，看不懂可以交给 AI 分析
-- 容器内执行命令：`docker exec <容器ID> <命令>`，例如：
+- 容器内执行命令：`docker exec <容器ID> <命令>`，需要容器正在运行，例如：
   - `docker exec -it <容器ID> ps -ef` 查看容器内进程
   - `docker exec -it <容器ID> /bin/sh` 进入容器的 Shell
   - `docker exec -it <容器ID> bash` 进入容器的 Bash shell
