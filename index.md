@@ -17,6 +17,7 @@
   - [Anannas API 代理](#note/Archive/Anannas%20API%20代理.md) 2026-02-04
 
 #### dev
+  - [霍格沃茨魔法学校](#note/dev/霍格沃茨魔法学校.md) 2026-02-12
   - [Docker 基础（Linux）](#note/dev/Docker%20基础（Linux）.md) 2026-02-10
   - [Cherry Studio 美化](#note/dev/Cherry%20Studio%20美化.md) 2026-02-04
   - [git 下载与配置](#note/dev/git%20下载与配置.md) 2026-02-04
@@ -32,7 +33,6 @@
   - [智谱 coding plan 接入 NewAPI](#note/dev/智谱%20coding%20plan%20接入%20NewAPI.md) 2026-02-04
   - [让远程服务器走本地电脑的代理实现科学上网](#note/dev/让远程服务器走本地电脑的代理实现科学上网.md) 2026-02-04
   - [豆包网页开启黑暗主题](#note/dev/豆包网页开启黑暗主题.md) 2026-02-04
-  - [霍格沃茨魔法学校](#note/dev/霍格沃茨魔法学校.md) 2026-02-04
 
 ### 测试
 
