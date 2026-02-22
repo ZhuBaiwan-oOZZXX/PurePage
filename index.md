@@ -7,17 +7,12 @@
 ### note
 
 #### API 代理
+  - [清程极智 AIPing API 代理](#note/API%20代理/清程极智%20AIPing%20API%20代理.md) 2026-02-22
   - [美团 LongCat API代理](#note/API%20代理/美团%20LongCat%20API代理.md) 2026-02-06
-  - [清程极智 AIPing API 代理](#note/API%20代理/清程极智%20AIPing%20API%20代理.md) 2026-02-04
   - [百灵大模型 API 代理](#note/API%20代理/百灵大模型%20API%20代理.md) 2026-02-04
 
-#### Archive
-  - [小马算力 API 代理](#note/Archive/小马算力%20API%20代理.md) 2026-02-06
-  - [心流 iflow API 代理](#note/Archive/心流%20iflow%20API%20代理.md) 2026-02-06
-  - [Anannas API 代理](#note/Archive/Anannas%20API%20代理.md) 2026-02-04
-
 #### dev
-  - [霍格沃茨魔法学校](#note/dev/霍格沃茨魔法学校.md) 2026-02-12
+  - [霍格沃茨魔法学校](#note/dev/霍格沃茨魔法学校.md) 2026-02-22
   - [Docker 基础（Linux）](#note/dev/Docker%20基础（Linux）.md) 2026-02-10
   - [Cherry Studio 美化](#note/dev/Cherry%20Studio%20美化.md) 2026-02-04
   - [git 下载与配置](#note/dev/git%20下载与配置.md) 2026-02-04

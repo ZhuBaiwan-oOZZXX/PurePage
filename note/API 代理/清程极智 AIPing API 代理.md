@@ -13,7 +13,7 @@ export default {
 
     // 处理根路径
     if (url.pathname === "/") {
-      return new Response("Aiping AI Proxy", { status: 200 });
+      return new Response("请在 https://aiping.cn/user/called-records 查看调用记录");
     }
 
     // 处理模型列表请求
@@ -22,13 +22,7 @@ export default {
       if (!res.ok) return new Response(await res.text(), { status: res.status });
 
       const { data, object } = await res.json();
-      const freeModels = data.filter(
-        (model) =>
-          model.price?.input_price_range?.[0] === 0 &&
-          model.price?.input_price_range?.[1] === 0 &&
-          model.price?.output_price_range?.[0] === 0 &&
-          model.price?.output_price_range?.[1] === 0,
-      );
+      const freeModels = data.filter((model) => model.price?.input_price_range?.[0] === 0 && model.price?.output_price_range?.[0] === 0);
 
       return Response.json({ object, data: freeModels });
     }
@@ -37,4 +31,17 @@ export default {
     return fetch(`https://aiping.cn/api${url.pathname}${url.search}`, req);
   },
 };
+```
+
+注意请求时必须加上以下请求参数：
+
+```
+{
+  "provider": {
+    "sort": ["throughput"],
+    "input_price_range": [0, 0],
+    "output_price_range": [0, 0],
+    "allow_fallbacks": false
+  }
+}
 ```
