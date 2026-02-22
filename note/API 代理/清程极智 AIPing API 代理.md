@@ -35,7 +35,7 @@ export default {
 
 注意请求时必须加上以下请求参数：
 
-```
+```json
 {
   "provider": {
     "sort": ["throughput"],
