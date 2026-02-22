@@ -37,11 +37,13 @@ export default {
 
 ```json
 {
-  "provider": {
-    "sort": ["throughput"],
-    "input_price_range": [0, 0],
-    "output_price_range": [0, 0],
-    "allow_fallbacks": false
+  "extra_body": {
+    "provider": {
+      "sort": ["throughput"],
+      "input_price_range": [0, 0],
+      "output_price_range": [0, 0],
+      "allow_fallbacks": false
+    }
   }
 }
 ```
