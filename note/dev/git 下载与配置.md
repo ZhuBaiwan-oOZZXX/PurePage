@@ -1,7 +1,7 @@
 # git 下载与配置
 
 - git 官网：https://git-scm.com/
-- 下载过程选项可以参考：[git安装](https://www.bilibili.com/video/BV19EGkzWEV9)
+- 下载过程选项可以参考：[git 安装](https://www.bilibili.com/video/BV19EGkzWEV9)
 
 Git 提交代码前必须设置用户名和邮箱，不然执行 `git commit` 会报错，所以我们全局配置用户名与邮箱，可以随便填写，但是不能为空。
 

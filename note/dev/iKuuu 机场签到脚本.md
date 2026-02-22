@@ -148,8 +148,7 @@ const ACCOUNTS = [{ email: "你的邮箱", pwd: "你的密码" }];
 
 function getHeaders(cookie = "") {
   const headers = {
-    "User-Agent":
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
     Referer: BASE_URL,
     Origin: BASE_URL,
     "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
