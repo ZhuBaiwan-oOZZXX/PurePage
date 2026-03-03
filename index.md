@@ -12,7 +12,8 @@
   - [美团 LongCat API代理](#note/API%20代理/美团%20LongCat%20API代理.md) 2026-02-22
 
 #### dev
-  - [霍格沃茨魔法学校](#note/dev/霍格沃茨魔法学校.md) 2026-02-28
+  - [Cherry Studio 美化](#note/dev/Cherry%20Studio%20美化.md) 2026-03-03
+  - [霍格沃茨魔法学校](#note/dev/霍格沃茨魔法学校.md) 2026-03-03
   - [Docker 基础（Linux）](#note/dev/Docker%20基础（Linux）.md) 2026-02-22
   - [git 下载与配置](#note/dev/git%20下载与配置.md) 2026-02-22
   - [iKuuu 机场签到脚本](#note/dev/iKuuu%20机场签到脚本.md) 2026-02-22
@@ -24,7 +25,6 @@
   - [常用 git 命令](#note/dev/常用%20git%20命令.md) 2026-02-22
   - [让远程服务器走本地电脑的代理实现科学上网](#note/dev/让远程服务器走本地电脑的代理实现科学上网.md) 2026-02-22
   - [豆包网页开启黑暗主题](#note/dev/豆包网页开启黑暗主题.md) 2026-02-22
-  - [Cherry Studio 美化](#note/dev/Cherry%20Studio%20美化.md) 2026-02-04
   - [修复 Windows 数字显示成符号的异常](#note/dev/修复%20Windows%20数字显示成符号的异常.md) 2026-02-04
   - [批量删除 kimi 网页对话](#note/dev/批量删除%20kimi%20网页对话.md) 2026-02-04
   - [智谱 coding plan 接入 NewAPI](#note/dev/智谱%20coding%20plan%20接入%20NewAPI.md) 2026-02-04
