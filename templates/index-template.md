@@ -24,4 +24,4 @@ node generate-content.js
 
 ---
 
-*感谢访问我的博客！*
+**_感谢访问我的博客！_**
