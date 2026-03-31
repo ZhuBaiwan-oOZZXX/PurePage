@@ -24,6 +24,9 @@ export default {
         data: [
           { id: "Ling-1T", object: "model" },
           { id: "Ring-1T", object: "model" },
+          { id: "Ling-2.5-1T", object: "model" },
+          { id: "Ring-2.5-1T", object: "model" },
+          { id: "AntAngelMed", object: "model" },
         ],
         object: "list",
       });
