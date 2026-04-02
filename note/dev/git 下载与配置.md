@@ -14,6 +14,12 @@ git config --global user.email "zhubaiwan.oozzxx@gmail.com"
 
 # 设置全局默认分支为 main (可选)
 git config --global init.defaultBranch main
+
+# .gitattributes 配置
+git config --global core.autocrlf input
+
+# git log 配置别名，之后可以直接执行 git logs 查看提交记录
+git config --global alias.logs "log --pretty=format:'%Cred%h%Creset | %Cgreen%an%Creset | %Cblue%ad%Creset | %s' --date=format:'%Y-%m-%d %H:%M'"
 ```
 
 配置完实际上是在电脑上的 `C:\Users\用户名\.gitconfig` 文件写入了以下信息：
@@ -24,6 +30,10 @@ git config --global init.defaultBranch main
 	email = zhubaiwan.oozzxx@gmail.com
 [init]
 	defaultBranch = main
+[core]
+	autocrlf = input
+[alias]
+	logs = log --pretty=format:'%Cred%h%Creset | %Cgreen%an%Creset | %Cblue%ad%Creset | %s' --date=format:'%Y-%m-%d %H:%M'
 ```
 
 你也可以用此命令查看全局配置：
