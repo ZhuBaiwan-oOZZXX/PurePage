@@ -12,12 +12,16 @@ export default {
     const url = new URL(req.url);
     const BASE = "https://api.poe.com";
 
+    if (url.pathname === "/") {
+      return new Response("Hello World", { status: 200 });
+    }
+
     if (url.pathname === "/models" || url.pathname === "/v1/models") {
       const res = await fetch(`${BASE}/v1/models${url.search}`, req);
       if (!res.ok) return new Response(await res.text(), { status: res.status });
       const data = await res.json();
       const free = data.data?.filter((m) => m.pricing?.request === "0.00") || [];
-      return Response.json({ object: data.object, data: free });
+      return Response.json({ object: data.object, free });
     }
 
     return fetch(`${BASE}${url.pathname}${url.search}`, req);
