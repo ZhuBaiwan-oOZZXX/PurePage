@@ -7,9 +7,10 @@
 ### note
 
 #### API 代理
-  - [百灵大模型 API 代理](#note/API%20代理/百灵大模型%20API%20代理.md) 2026-03-31
-  - [清程极智 AIPing API 代理](#note/API%20代理/清程极智%20AIPing%20API%20代理.md) 2026-02-22
-  - [美团 LongCat API代理](#note/API%20代理/美团%20LongCat%20API代理.md) 2026-02-22
+  - [Poe 大模型 API 代理](#note/API%20代理/Poe%20大模型%20API%20代理.md) 2026-04-07
+  - [清程极智 AIPing API 代理](#note/API%20代理/清程极智%20AIPing%20API%20代理.md) 2026-04-07
+  - [百灵大模型 API 代理](#note/API%20代理/百灵大模型%20API%20代理.md) 2026-04-07
+  - [美团 LongCat API代理](#note/API%20代理/美团%20LongCat%20API代理.md) 2026-04-07
 
 #### dev
   - [git 下载与配置](#note/dev/git%20下载与配置.md) 2026-04-02

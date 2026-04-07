@@ -17,35 +17,25 @@ const API_BASE = "https://api.longcat.chat/openai";
 async function fetchModels() {
   const res = await fetch(DOCS_URL);
   const html = await res.text();
-
   const models = [];
   for (const row of html.matchAll(/<tr>[\s\S]*?<\/tr>/gi)) {
     const cell = row[0].match(/<t[dh]>([\s\S]*?)<\/t[dh]>/i)?.[1];
     const name = cell?.replace(/<.*?>/g, "").trim();
-    if (name.includes("LongCat")) {
-      models.push({ id: name, object: "model" });
-    }
+    if (name.includes("LongCat")) models.push({ id: name, object: "model" });
   }
   return models;
 }
 
 export default {
-  async fetch(request) {
-    const url = new URL(request.url);
-
+  async fetch(req) {
+    const url = new URL(req.url);
     if (url.pathname === "/") {
       return new Response("模型列表请查看 https://longcat.chat/platform/docs/zh/#支持的模型", { status: 200 });
     }
-
     if (url.pathname === "/models" || url.pathname === "/v1/models") {
-      const models = await fetchModels();
-      return Response.json({
-        data: models,
-        object: "list",
-      });
+      return Response.json({ data: await fetchModels(), object: "list" });
     }
-
-    return fetch(API_BASE + url.pathname + url.search, request);
+    return fetch(`${API_BASE}${url.pathname}${url.search}`, req);
   },
 };
 ```

@@ -12,13 +12,11 @@ cloudflare workers 部署：
 
 ```js
 export default {
-  async fetch(request) {
-    const url = new URL(request.url);
-
+  async fetch(req) {
+    const url = new URL(req.url);
     if (url.pathname === "/") {
       return new Response("Hello World", { status: 200 });
     }
-
     if (url.pathname === "/models" || url.pathname === "/v1/models") {
       return Response.json({
         data: [
@@ -31,13 +29,7 @@ export default {
         object: "list",
       });
     }
-
-    const response = await fetch("https://api.tbox.cn/api/llm" + url.pathname + url.search, {
-      method: request.method,
-      headers: request.headers,
-      body: request.body,
-    });
-    return response;
+    return fetch(`https://api.tbox.cn/api/llm${url.pathname}${url.search}`, req);
   },
 };
 ```
