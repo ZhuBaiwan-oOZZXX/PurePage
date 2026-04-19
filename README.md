@@ -43,7 +43,13 @@
 const SCAN_DIRS = ["note", "posts", "docs"]; // 添加更多目录
 ```
 
+Archive 未写到数组中，可当做归档文件夹使用。
+
+使用前注意删除本项目中的笔记文件。
+
 ### 5. 更新内容
+
+> 有 workflow 了这一步可省略，需要开启 `Actions`。
 
 每次修改完，运行以下命令更新侧边栏和首页：
 
@@ -55,21 +61,11 @@ node generate-content.js
 
 完成修改后，将内容提交并推送到你的 GitHub 仓库：
 
-首次提交你可能需要执行：
-
 ```bash
 git remote add origin https://github.com/你的用户名/PurePage.git
 git add .
 git commit -m "添加新文章和修改"
 git push -f origin main
-```
-
-之后的每次提交：
-
-```bash
-git add .
-git commit -m "添加新文章和修改"
-git push origin main
 ```
 
 ### 7. 部署
