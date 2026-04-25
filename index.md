@@ -13,9 +13,9 @@
   - [美团 LongCat API代理](#note/API%20代理/美团%20LongCat%20API代理.md) 2026-04-07
 
 #### dev
-  - [iKuuu 机场签到脚本](#note/dev/iKuuu%20机场签到脚本.md) 2026-04-19
+  - [霍格沃茨魔法学校](#note/dev/霍格沃茨魔法学校.md) 2026-04-25
+  - [霍格沃茨魔法学校（修订记录）](#note/dev/霍格沃茨魔法学校（修订记录）.md) 2026-04-25
   - [常用 git 命令](#note/dev/常用%20git%20命令.md) 2026-04-14
-  - [霍格沃茨魔法学校](#note/dev/霍格沃茨魔法学校.md) 2026-04-07
   - [git 下载与配置](#note/dev/git%20下载与配置.md) 2026-04-02
   - [修复 Windows 数字显示成符号的异常](#note/dev/修复%20Windows%20数字显示成符号的异常.md) 2026-03-30
   - [Windows 设置命令别名（alias）](#note/dev/Windows%20设置命令别名（alias）.md) 2026-03-29
